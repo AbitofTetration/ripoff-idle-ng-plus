@@ -75,6 +75,10 @@ function setdisp(id, val) {
 	document.getElementById(id).style.display = val;
 }
 
+function show(id) {
+	setdisp(id, '');
+}
+
 function hide(id) {
 	setdisp(id, 'none');
 }
