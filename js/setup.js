@@ -1875,6 +1875,8 @@ class Game {
 				this.tps = new Decimal(data.tps);
 				this.tpsc = new Decimal(data.tpsc);
 				this.tsu = new Decimal(data.tsu);
+        
+        this.unfunityPoints = new Decimal(data.unfunityPoints)
 				
 				for (let i = 0; i < data.generators.length; i++) {
 					this.generators[i] = [];
