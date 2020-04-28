@@ -69,6 +69,7 @@ function gameLoop() {
 	showElems();
 	updGens();
 	doCps();
+  showunfunity();
 	for (let i of game.achievements) {
 		i.updUnlock();
 	}

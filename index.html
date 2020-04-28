@@ -25,7 +25,7 @@
 		<script src='js/upgrade.js'></script>
 		<script src='js/achievement.js'></script>
 		<script src='js/popup.js'></script>
-		<script src='js/createbuttons.js'></script>
+		<script src='js/unfunity.js'></script>
 		
 		<!--CSS-->
 		<link rel='stylesheet' type='text/css' href='css/stylesheet.css'>
@@ -60,7 +60,7 @@
 						<div id='tabs'>
 							<button onclick='switchTab(0)' class='switch1'>Stats</button>
 							<button onclick='switchTab(1)' class='switch1'>Settings</button>
-							<button onclick='switchTab(1)' class='switch1'>Settings</button>
+							<button onclick='switchTab(2)' class='switch1'>Unfunity</button>
 							<button onclick='switchTab(1)' class='switch1'>Settings</button>
 							<button onclick='switchTab(1)' class='switch1'>Settings</button>
 						</div>
@@ -75,6 +75,9 @@
 								<button onclick='switchSubTab(3)' class='switch2'>Options</button>
 								<button onclick='switchSubTab(4)' class='switch2'>Save Info</button>
 								<button onclick='switchSubTab(5)' class='switch2'>Info</button>
+							</div>
+							<div id='tab2'>
+								<button onclick='switchSubTab(6)' class='switch2'>Unfunity</button>
 							</div>
 						</div>
 					</div>
@@ -122,6 +125,11 @@
 							<h4>Info</h4>
 							<a href='html/howto.html'>How To Play</a><br>
 							<a href='https://github.com/Reinhardt-C/Ripoff-Idle'>Source Code</a>
+						</div>
+						<!-- Unfunity -->
+						<div id='subtab6'>
+							<h4>Unfunity</h4>
+							You have <span id='unfunity'></span> unfunity points, boosting production by <span id='unfunityBoost'></span>x.
 						</div>
 				</div>
 				

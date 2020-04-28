@@ -1,9 +1,9 @@
 function showElems() {
-	for (let i = 0; i < 2; i++) {
+	for (let i = 0; i < 3; i++) {
 		hide(`tab${i}`);
 	}
 	
-	for (let i = 0; i < 6; i++) {
+	for (let i = 0; i < 7; i++) {
 		hide(`subtab${i}`);
 	}
 	

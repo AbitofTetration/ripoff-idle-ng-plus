@@ -11,4 +11,5 @@ function doCps() {
 			game.generators[i][j - 1].incAmount(game.generators[i][j].totalCps.div(new Decimal(400).divide(game.tps)));
 		}
 	}
+  updateUnfunity(game.tps)
 }

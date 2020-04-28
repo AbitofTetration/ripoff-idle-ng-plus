@@ -24,6 +24,8 @@ class Game {
 				this.generators[i][j] = new Generator(i, j);
 			}
 		}
+    
+    this.unfunityPoints = new Decimal(0)
 		
 		// Begin Data Objects
 		this.upgradeData = [
