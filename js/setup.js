@@ -26,6 +26,7 @@ class Game {
 		}
     
     this.unfunityPoints = new Decimal(0)
+    this.unfunityGalaxies = new Decimal(0)
 		
 		// Begin Data Objects
 		this.upgradeData = [
@@ -1877,6 +1878,7 @@ class Game {
 				this.tsu = new Decimal(data.tsu);
         
         this.unfunityPoints = new Decimal(data.unfunityPoints)
+        this.unfunityGalaxies = new Decimal(data.unfunityGalaxies)
 				
 				for (let i = 0; i < data.generators.length; i++) {
 					this.generators[i] = [];
