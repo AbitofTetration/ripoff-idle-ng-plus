@@ -4,7 +4,7 @@ function doCps() {
 		cps = cps.add(game.generators[i][0].totalCps);
 	}
 	game.cps = cps.divide(new Decimal(20).divide(game.tps));
-  game.cps = game.cps.mul(getUnfunityBoost())
+  game.cps = game.cps
 	game.cookies = game.cookies.add(cps.div(new Decimal(400).divide(game.tps)));
 	game.totalProdCookies = game.totalProdCookies.add(cps.div(new Decimal(400).divide(game.tps)));
 	for (let i = 0; i < 16; i++) {

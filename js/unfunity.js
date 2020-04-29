@@ -1,19 +1,18 @@
 function getGalaxyBoost() {
   let q = game.unfunityGalaxies.add(1)
   
-  q = q.max(1).pow(0.5)
+  q = q.max(1).pow(3.5)
   
   return q
 }
 
 function updateUnfunity(time) {
-  let r = game.tps.pow(-1).pow(0.35)
-  let q = game.cookies.log(10).div(25).pow(0.5).div(3600)
+  let q = game.cookies.log(10).div(15).pow(0.5).div(3600)
   if(game.cookies.gt(1e150)) {
     game.unfunityPoints = game.unfunityPoints.add(q)
   }
   game.unfunityGalaxies = Decimal.affordGeometricSeries(game.unfunityPoints, new Decimal(5), new Decimal(4), new Decimal(-1)).floor()
-  return q.mul(400).mul(r)
+  return q.mul(400)
 }
 
 function getUnfunityBoost() {
