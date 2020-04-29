@@ -1,23 +1,24 @@
 function getGalaxyBoost() {
   let q = game.unfunityGalaxies.add(1)
   
-  q = q.max(1).pow(0.2)
+  q = q.max(1).pow(0.5)
   
   return q
 }
 
 function updateUnfunity(time) {
+  let q = game.cookies.log(10).div(25).pow(0.5).div(3600)
   if(game.cookies.gt(1e150)) {
-    game.unfunityPoints = game.unfunityPoints.add(game.cookies.log(10).div(50).pow(0.5).div(3600))
+    game.unfunityPoints = game.unfunityPoints.add(q)
   }
-  game.unfunityGalaxies = Decimal.affordGeometricSeries(game.unfunityPoints, new Decimal(10), new Decimal(10), this.bought).floor()
-  return game.cookies.log(10).div(25).pow(0.5).div(3600).mul(400)
+  game.unfunityGalaxies = Decimal.affordGeometricSeries(game.unfunityPoints, new Decimal(5), new Decimal(5), new Decimal(0)).floor()
+  return q.mul(400)
 }
 
 function getUnfunityBoost() {
   let q = game.unfunityPoints.add(1)
   
-  q = q.mul(getGalaxyBoost()).max(1).pow(0.50)
+  q = q.max(1).pow(0.65).mul(getGalaxyBoost())
   
   return q
 }
@@ -29,4 +30,5 @@ function showunfunity() {
 
   setElem('unfunGalaxies', game.unfunityGalaxies.toFixed(2))
   setElem('unfunGalaxyBoost', getGalaxyBoost().toFixed(2))
+  setElem('unfunGalaxyThreshold', Decimal.mul(5, Decimal.pow(10, game.unfunityGalaxies)).toFixed(0))
 }
