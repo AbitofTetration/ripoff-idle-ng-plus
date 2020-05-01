@@ -113,11 +113,6 @@ class Generator {
 				this.basePrice = new Decimal(3.1e17);
 				this.multPerDim = new Decimal(1e50);
 				this.baseCps = new Decimal(1.5e11);
-			case 16:
-				this.type = 'Javascript Console';
-				this.basePrice = new Decimal(3.1e17);
-				this.multPerDim = new Decimal(1e50);
-				this.baseCps = new Decimal(1.5e11);
 		}
 		this.dim = dim;
 		if (this.dim == 0) {

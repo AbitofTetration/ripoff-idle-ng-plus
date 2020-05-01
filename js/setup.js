@@ -16,9 +16,9 @@ class Game {
 		this.tooltip = '';
 		
 		this.generators = [];
-		this.unlockedGens = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+		this.unlockedGens = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
 		
-		for (let i = 0; i < 17; i++) {
+		for (let i = 0; i < 16; i++) {
 			this.generators[i] = [];
 			for (let j = 0; j < 8; j++) {
 				this.generators[i][j] = new Generator(i, j);
@@ -1892,7 +1892,7 @@ class Game {
 				}
 				
 				if (data.unlockedGens) {
-					for (let i = 0; i < 17; i++) {
+					for (let i = 0; i < 16; i++) {
 						this.unlockedGens[i] = data.unlockedGens[i];
 					}
 				}
