@@ -1,127 +1,253 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <title>True Infinity</title>
-  <meta charset="UTF-8">
-  <meta name="description" content="More Infinite than Any Game to Date!" />
-  <meta name="keywords" content="Idle,Game,Indie,True,Infinity,Incremental" />
-  <meta name="author" content="Reinhardt (Logan McDonald)" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="x4dhb8CYA-CckrCCj2Mc0qbrX6Yw9WmxAZieFdIQjQk" />
-
-  <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
-
-  <link id='ss' href='css/stylesheet.css' rel='stylesheet'>
-  </link>
-    <link id='sb' href='css/sbb.css' rel='stylesheet'>
-  </link>
-  <link id='theme' href='css/default.css' rel='stylesheet'>
-  </link>
-  <!-- Global error handler -->
-  <script src="js/error.js"></script>
-
-  <!-- Basic libs -->
-  <script src='js/lib/ExpantaNum.js'></script>
-  <script src="js/lib/mousetrap.js"></script>
-  <script src='js/lib/notation.js'></script>
-  <script src="js/lib/clipboard.js"></script>
-  <script src="js/lib/lodash.js"></script>
-
-  <!-- Console for use on mobile -->
-  <script src='js/console.js'></script>
-
-  <!-- Game libs -->
-  <script src='js/function.js'></script>
-  <script src='js/prestige.js'></script>
-  <script src='js/dom.js'></script>
-  <script src='js/upgrade.js'></script>
-
-  <!-- Config Files -->
-  <script src='js/config.js'></script>
-
-  <!-- Actual Game -->
-  <script src='js/main.js'></script>
-  <script src="js/saving.js"></script>
-</head>
-
-<body onload="startGame()" onunload="nyanSave()">
-  <div id='game'>
-    <div id='topbar'>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <span id='title' onmousedown="window.open('credits.html')">True Infinity γ1.1.6</span>
-<!--       <span id='ticker'></span> -->
-      <span id='linkscontainer' onmouseleave="blurLinks()">
-        <div id="linksarrow" onmousedown="focusLinks()">&Delta;</div>
-        <div id="links">
-          <a href="https://discord.gg/Jgrystv/">Discord</a><br>
-          <a href="html/help.html">How to Play</a><br>
-          <a href="https://github.com/Reinhardt-C/TrueInfinity/blob/master/changelog.md/">Patch Notes</a><br>
-          <a href="beta/index.html">Beta</a><br>
-          <a href="alpha/index.html">Alpha</a>
-        </div>
-      </span>
-    </div>
-
-    <div id='sidebar'>
-      <button id='sbt' onclick='toggleSidebar()' class='sbb'></button>
-      <br>
-      <br>
-      <button id='tabb0' onclick='tab(0)' class='sbb grey'></button>
-      <button id='tabb1' onclick='tab(1)' class='sbb blue'></button>
-      <button id='tabb2' onclick='tab(2)' class='sbb yellow'></button>
-      <br><br><br>
-      <button id='tabb100' onclick='tab(100)' class='sbb purple'></button>
-    </div>
-
-    <div id='main'>
-      <div id='tab0' class='mt'>
-        <div id='layers'></div>
-      </div>
-      <div id='tab1' class='mt'>
-        <!--<button onclick="onBuyTriggers(['resetLayer', jea([0])])">Reset dims</button>
-        <button onclick="alert(eval(prompt('Enter your orders')))">(KEEP OUT) Eval</button>-->
-        <div class="os grey">
-          Saving
-          <button onclick="nyanSave()" class="sbb green">Save</button><br><br>
-        <!--<button onclick="copyStringToClipboard(JSON.stringify(game))">Raw debug export</button>
-        <button onclick="copyStringToClipboard(getSaveString())">Debug Export</button>-->
-          <button onclick="copyStringToClipboard(getFinalSaveString())" class="sbb blue">Export</button>
-          <button onclick="nyanLoad(prompt('Paste your save below'))" class="sbb yellow">Import</button><br><br>
-          <button onclick="wipe()" class="sbb red">Wipe</button>
-        </div>
-      </div>
-      <div id='tab2' class='mt'>
-        <div id='upgtab1'>
-          <div id='upgrades1' class='upgs'>
-          </div>
-        </div>
-      </div>
-      <div id='tab100' class='mt'>
-          <div class="r">
-            <div class="rt" style="text-align: center">
-              <br>
-              <span id="unfunitypoints">0</span>
-              <br>
-          </div>
-          <div id='unfunUpg' class="g" style="height: 300px;padding-top: 15px; text-align: center;">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="welcomeback">
-    Welcome back!<br>
-    You were offline for <span id='timeoffline'>0</span><span id='gainspan'> so you gain <span id='unfungain'>0</span> unfunity points.</span>
-    <span id="close" onmousedown="closeWB()">&times;&nbsp;</span>
-  </div>
-
-  <div id="errC" style="position:fixed;bottom:0;right:0;display:none;">
-  </div>
-
-  <div id='errCtest' style="position:fixed;bottom:0;right:0;display:flex;flex-direction:column;">
-  </div>
-</body>
-
+	<head>
+		<!--Title-->
+		<title>Ripoff Idle</title>
+		
+		<!--Meta Data-->
+		<meta name='description' content='How many idle games can I ripoff in one?'>
+		<meta name='keywords' content='idle game ripoff'>
+		<meta name='author' content='Reinhardt'>
+		<meta charset='UTF-8'>
+		
+		<!--JavaScript-->
+		<script src='js/break_eternity.js'></script>
+		<script src='js/main.js'></script>
+		<script src='js/setup.js'></script>
+		<script src='js/setelem.js'></script>
+		<script src='js/showelem.js'></script>
+		<script src='js/helper.js'></script>
+		<script src='js/generator.js'></script>
+		<script src='js/genupd.js'></script>
+		<script src='js/debug.js'></script>
+		<script src='js/createbuttons.js'></script>
+		<script src='js/cps.js'></script>
+		<script src='js/upgrade.js'></script>
+		<script src='js/achievement.js'></script>
+		<script src='js/popup.js'></script>
+		<script src='js/unfunity.js'></script>
+		
+		<!--CSS-->
+		<link rel='stylesheet' type='text/css' href='css/stylesheet.css'>
+	</head>
+	
+	<body>
+		<div id='loading' style='color: white'>If this is up for more than 30 seconds refresh.<br>If all else fails, press f12, go into console and type wipe();, press enter, and refresh.</div>
+		<div id='game'>
+			<div id='autosave'>
+				Your Game Was Saved
+			</div>
+			<div id='popups'>
+			</div>
+			<div id='topbar'>
+				<p id='version'>Ripoff Idle v0 by Reinhardt</p>
+				<div id='tickspeeddiv'>
+					<p id='tps'>TPS: 20</p>
+					<p>Reduce the tick interval by 11%</p>
+					<button id='tickspeedbuymax' onclick='bmt()'>Buy Max</button><button id='tickspeedbuy' onclick='buyTick()'>Cost: <p class='cost' id='tpsc'>100</p></button>
+				</div>
+			</div>
+			
+			<div id='columns'>
+				<div id='left'>
+					<div id='cookiediv'>
+						<p id='cookiecount'>0 cookies</p>
+						<img onmousedown='cookieClick()' src='assets/img/cookie.png' width='250' height='250' id='cookie'></img>
+						<hr>
+					</div>
+					
+					<div id='selectdiv'>
+						<div id='tabs'>
+							<button onclick='switchTab(0)' class='switch1'>Stats</button>
+							<button onclick='switchTab(1)' class='switch1'>Settings</button>
+							<button onclick='switchTab(2)' class='switch1'>Unfunity</button>
+							<button onclick='switchTab(1)' class='switch1'>Settings</button>
+							<button onclick='switchTab(1)' class='switch1'>Settings</button>
+						</div>
+						<div id='subtabs'>
+							<div id='tab0'>
+								<button onclick='switchSubTab(0)' class='switch2'>Statistics</button>
+								<button onclick='switchSubTab(1)' class='switch2'>Upgrades</button>
+								<button onclick='switchSubTab(2)' class='switch2'>Achievements</button>
+								<button onclick='infCookies()' class='switch2' id='cheater'></button>
+							</div>
+							<div id='tab1'>
+								<button onclick='switchSubTab(3)' class='switch2'>Options</button>
+								<button onclick='switchSubTab(4)' class='switch2'>Save Info</button>
+								<button onclick='switchSubTab(5)' class='switch2'>Info</button>
+							</div>
+							<div id='tab2'>
+								<button onclick='switchSubTab(6)' class='switch2'>Unfunity</button>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div id='tooltip'>
+					</div>
+				</div>
+				
+				<div id='mid1'>
+					<!-- STATS -->
+						<!-- Statistics -->
+						<div id='subtab0'>
+							<h4><u>Stats</u></h4>
+							<p id='statcookies'>Cookies: 0</p><br>
+							<p id='stattotalcookies'>Total Baked Cookies: 0</p><br>
+							<p id='statcookieclicks'>Cookie Clicks: 0</p><br>
+							<p id='statcps'>Cookies per Second: 0</p>
+						</div>
+						<!-- Bought Upgrades -->
+						<div id='subtab1'>
+							<h4>Upgrades</h4> <p id='up'></p>
+							<div id='bu'></div>
+						</div>
+						<!-- Achievements -->
+						<div id='subtab2'>
+							<h4>Achievements</h4> <p id='ap'></p>
+							<div id='ua'></div>
+						</div>
+					
+					<!-- SETTINGS -->
+						<!-- Options -->
+						<div id='subtab3'>
+							<h4>Options</h4>
+						</div>
+						<!-- Save Info -->
+						<div id='subtab4'>
+							<button onclick='save()'>Save</button>
+							<button onclick='load()'>Load</button><br>
+							<button onclick='toggleas()'>Toggle Autosave</button><p id='asstate'> On</p><br>
+							<span id='autosavetime'><p>Autosave every </p><input id='asintv' value='30' style='width: 30px' /><p> seconds</p></span><br>
+							<button onclick='wipe()' style='border-color: red; color: red'>Wipe Save</button>
+						</div>
+						<!-- Info -->
+						<div id='subtab5'>
+							<h4>Info</h4>
+							<a href='html/howto.html'>How To Play</a><br>
+							<a href='https://github.com/Reinhardt-C/Ripoff-Idle'>Source Code</a>
+						</div>
+						<!-- Unfunity -->
+						<div id='subtab6'>
+							<h4>Unfunity</h4>
+							You have <span id='unfunity'></span> unfunity points, boosting production by <span id='unfunityBoost'></span>x.
+            <br>You are getting <span id='unfunity/sec'></span> unfunity points per second.
+              <br><br>
+              You have <span id='unfunGalaxies'></span> unfun galaxies, increasing unfunity point power by <span id='unfunGalaxyBoost'></span>x.
+            <br>Next unfun galaxy at <span id='unfunGalaxyThreshold'></span> unfunity points.
+						</div>
+				</div>
+				
+				<div id='mid2'>
+					<div id='shopdiv'>
+						<span id='bulkspan'><p>Buy Amount: </p><input id='bulk' value='1' style='width: 90px;' /><button onclick='togglebm()'>Toggle Buy Max</button><p id='bmstate'> Off</p></span>
+						<div class='genshop' id='CursorShop'>
+						</div>
+						<div class='genshop' id='GrandmaShop'>
+						</div>
+						<div class='genshop' id='FarmShop'>
+						</div>
+						<div class='genshop' id='MineShop'>
+						</div>
+						<div class='genshop' id='FactoryShop'>
+						</div>
+						<div class='genshop' id='BankShop'>
+						</div>
+						<div class='genshop' id='TempleShop'>
+						</div>
+						<div class='genshop' id='WizardTowerShop'>
+						</div>
+						<div class='genshop' id='ShipmentShop'>
+						</div>
+						<div class='genshop' id='AlchemyLabShop'>
+						</div>
+						<div class='genshop' id='PortalShop'>
+						</div>
+						<div class='genshop' id='TimeMachineShop'>
+						</div>
+						<div class='genshop' id='AntimatterCondenserShop'>
+						</div>
+						<div class='genshop' id='PrismShop'>
+						</div>
+						<div class='genshop' id='ChancemakerShop'>
+						</div>
+						<div class='genshop' id='FractalEngineShop'>
+						</div>
+					</div>
+				</div>
+				
+				<div id='right'>
+					<div id='upgradesdiv'>
+						<p id='upgTxt'>Upgrades</p>
+						<div id='upgradescontainer'>
+						</div>
+					</div>
+					
+					<div id='buildingsdiv'>
+						<hr>
+						<p>Buildings</p>
+						<nav>
+							<button>Normal</button>
+							<button>Infinity</button>
+							<button>Eternity</button>
+							<button>Reality</button>
+						</nav>
+						<button onclick='switchShopTab(0)' class='buildingshopbutt' id='shopbutt0'>
+							<p>Cursor</p>
+						</button>
+						<button onclick='switchShopTab(1)' class='buildingshopbutt' id='shopbutt1'>
+							<p>Grandma</p>
+						</button>
+						<button onclick='switchShopTab(2)' class='buildingshopbutt' id='shopbutt2'>
+							<p>Farm</p>
+						</button>
+						<button onclick='switchShopTab(3)' class='buildingshopbutt' id='shopbutt3'>
+							<p>Mine</p>
+						</button>
+						<button onclick='switchShopTab(4)' class='buildingshopbutt' id='shopbutt4'>
+							<p>Factory</p>
+						</button>
+						<button onclick='switchShopTab(5)' class='buildingshopbutt' id='shopbutt5'>
+							<p>Bank</p>
+						</button>
+						<button onclick='switchShopTab(6)' class='buildingshopbutt' id='shopbutt6'>
+							<p>Temple</p>
+						</button>
+						<button onclick='switchShopTab(7)' class='buildingshopbutt' id='shopbutt7'>
+							<p>Wizard Tower</p>
+						</button>
+						<button onclick='switchShopTab(8)' class='buildingshopbutt' id='shopbutt8'>
+							<p>Shipment</p>
+						</button>
+						<button onclick='switchShopTab(9)' class='buildingshopbutt' id='shopbutt9'>
+							<p>Alchemy Lab</p>
+						</button>
+						<button onclick='switchShopTab(10)' class='buildingshopbutt' id='shopbutt10'>
+							<p>Portal</p>
+						</button>
+						<button onclick='switchShopTab(11)' class='buildingshopbutt' id='shopbutt11'>
+							<p>Time Machine</p>
+						</button>
+						<button onclick='switchShopTab(12)' class='buildingshopbutt' id='shopbutt12'>
+							<p>Antimatter Condenser</p>
+						</button>
+						<button onclick='switchShopTab(13)' class='buildingshopbutt' id='shopbutt13'>
+							<p>Prism</p>
+						</button>
+						<button onclick='switchShopTab(14)' class='buildingshopbutt' id='shopbutt14'>
+							<p>Chancemaker</p>
+						</button>
+						<button onclick='switchShopTab(15)' class='buildingshopbutt' id='shopbutt15'>
+							<p>Fractal Engine</p>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<script>
+			let game;
+			init();
+		</script>
+	</body>
 </html>

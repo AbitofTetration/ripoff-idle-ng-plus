@@ -1,49 +1,79 @@
-var game;
-var diffMultiplier = 1
-var gameLoopIntervalId = 0
-var diff = 0
-var breakPoint = false
+/*
+	Welcome to the main JS file!
+	
+	Regardless of if your here to
+	find out how to cheat or something,
+	I'm going to (hopefully) comment
+	you through everything.
 
-function updateDisplay() {
-  updateElements()
-  for (let i in game.upgrades) game.upgrades[i].domUpdate();
-  for (let i in game.unfunityUpgrades) game.unfunityUpgrades[i].domUpdate();
+	If I forgot to, good luck reading
+	my spaghetti code ;)
+	
+	  _____    _                    __    __     _____       _   _        
+	 |  __ \  (_)                  / _|  / _|   |_   _|     | | | |       
+	 | |__) |  _   _ __     ___   | |_  | |_      | |     __| | | |   ___ 
+	 |  _  /  | | |  _ \   / _ \  |  _| |  _|     | |    / _  | | |  / _ \
+	 | | \ \  | | | |_) | | (_) | | |   | |      _| |_  | (_| | | | |  __/
+	 |_|  \_\ |_| |  __/   \___/  |_|   |_|     |_____|  \__ _| |_|  \___|
+				  | |                                                     
+				  |_|    
+	thanks to https://www.messletters.com/en/big-text/ for the ASCII letters
+*/
+
+// Chuck your data into the depths of the localStorage variable...
+function save() {
+	localStorage.setItem('ri-save', JSON.stringify(game));
+	var x = document.getElementById("autosave");
+	x.className = "show";
+	setTimeout(function () {
+		x.className = x.className.replace("show", "");
+	}, 1000);
+	if (game.autosave) {
+		setTimeout(save, game.autosaveintv * 1000);
+	}
 }
 
-function gameLoop(diff) {
-  if (breakPoint && !diff) return
-  // 1 diff = 0.001 seconds
-  var thisUpdate = new Date().getTime()
-  diff = (diff || Math.min(thisUpdate - game.lastUpdate,21600000)) * diffMultiplier;
-  //if (diffMultiplier > 1) console.log("SHAME")
-  //else if (diffMultiplier < 1) console.log("SLOWMOTION")
-  for (let i in game.prestige) game.prestige[i].update(diff);
-  updateDisplay()
-  game.lastUpdate = thisUpdate;
+// Clear the save file
+function wipe() {
+	if (confirm('Do you want to delete ALL of your progress?!?')) {
+		delete localStorage['ri-save'];
+		setup();
+		save();
+	}
 }
 
-function startGame() {  
-  document.getElementById('title').dataset.tooltip = 'By Reinhardt, Nyan Cat, Naruyoko';
-  if (!nyanLoad()) newGame()
-  tab(0)
-  Mousetrap.bind("m",() => { game.maxAllLayers() })
-  var thisUpdate = new Date().getTime()
-  diff = (thisUpdate - game.lastUpdate) * diffMultiplier;
-  document.getElementById('timeoffline').innerText = getDisplayTime(diff);
-  if (diff > 7.2e6) {
-    let hours = diff / 3.6e6;
-    game.unfunitypoints = game.unfunitypoints.add(Math.floor(D.pow(2,game.unfunityUpgBought.doubleUnfun).mul(hours)));
-    document.getElementById('unfungain').innerText = f(D.pow(2,game.unfunityUpgBought.doubleUnfun).mul(hours));
-    document.getElementById('gainspan').style.display = 'block';
-  } else {
-    document.getElementById('gainspan').style.display = 'none';
-  }
-  setInterval(function() {
-    if (!errorPopped) nyanSave()
-  }, 1000)
-  startInterval()
+// Retrieve your data from the depths of the localStorage variable...
+function load() {
+	if (localStorage.getItem('ri-save') != undefined && localStorage.getItem('ri-save') != 'undefined' && localStorage.getItem('ri-save') != null) {
+		game = new Game(JSON.parse(localStorage.getItem('ri-save')));
+		return true;
+	} else {
+		return false;
+	}
 }
 
-function startInterval() {
-  gameLoopIntervalId = setInterval(gameLoop, 33)
+function init() {
+	if (!load()) {
+		setup();
+	}
+	save();
+	createButtons();
+	for (let i of game.upgrades) {
+		i.testBought();
+	}
+	let loop = setInterval(gameLoop, 50);
+}
+
+function gameLoop() {
+	setElems();
+	showElems();
+	updGens();
+	doCps();
+  showunfunity();
+	for (let i of game.achievements) {
+		i.updUnlock();
+	}
+	game.autosaveintv = new Decimal(document.getElementById('asintv').value);
+	game.buyAmount = new Decimal(document.getElementById('bulk').value);
+	hide('loading');
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>How To Play</title>
+		<script src='../js/howto.js'></script>
+		<style>
+			body {
+				margin: 0;
+			}
+			#wrapper {
+				width: 50vw;
+				margin: 0;
+			}
+			button {
+				width: 150px;
+				height: 50px;
+				margin: 0;
+				background-color: white;
+				border-color: aqua;
+				border-style: solid;
+			}
+			button:focus {
+				outline: none;
+			}
+			small {
+				font-size: 3px;
+			}
+		</style>
+	</head>
+	
+	<body align='center' style='padding: 5px 25vw'>
+		<div align='center' id='wrapper'>
+			<!-- Title -->
+			<h2>How To Play</h2>
+			<hr>
+			
+			<!-- Description -->
+			<p><a href='../index.html'>Ripoff Idle</a> is a direct ripoff of as many idle games as I can stuff into 
+			one code base. The goal is to get a lot of cookies, and then get some more.</p>
+			<hr>
+			
+			<!-- Cookies -->
+			<button onclick='toggleSection(0)'>Cookies</button>
+			<div id='section0' style='display: none;'>
+				Cookies are the primary currency in Ripoff Idle. You can use them to purchase generators, 
+				upgrades and other great things. Your goal is to get a lot of them, like a lot. You can
+				click the the big cookie and it willl give you a cookie. <br><small>Cookies contain gluten
+				and chocolate. We are not responsible for any content induced harm, or illness due to 
+				excess consumption. For any inquiries please call the number 1797693134.</small>
+			</div>
+			<hr>
+			
+			<!-- Generators -->
+			<button onclick='toggleSection(1)'>Generators</button>
+			<div id='section1' style='display: none;'>
+				Generators make your cookies for you, so you don't have to get tendonitis clicking your
+				mouse. 1D generators make your cookies directly, 2D generators make 1D generators, 3D make
+				2D and so on.  The first (and cheapest) generator is the cursor, which clicks the big cookie
+				for you (use your imagination) and the next one is your lovely grandma, who likes to bake
+				cookies because that is the stereotype she was coded into, and the rest you can find out
+				yourself.
+			</div>
+			<hr>
+			
+			<!-- Upgrades -->
+			<button onclick='toggleSection(2)'>Upgrades</button>
+			<div id='section2' style='display: none;'>
+				Upgrades are what really speeds up the early game, without them you wouldn't get very far.
+				Upgrades each make something in the game faster, easier and better. You unlock new upgrades
+				to buy as you go along, and then you can invest your cookies in them to help grow your cookie
+				empire even faster.
+			</div>
+			<hr>
+			
+			<!-- Generators -->
+			<button onclick='toggleSection(3)'>Unfunity</button>
+			<div id='section3' style='display: none;'>
+				Unfunity is a mechanic unlocked at 1e150 cookies. You gain Unfunity Points based on your current
+        cookies. They can be used to boost the general production of your buildings, and they can be used
+        to buy upgrades such as doubling unfunity point gain, or boosting the unfunity point boost.
+			</div>
+			<hr>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>You are a dirty cheater :(</title>
+	</head>
+	
+	<body>
+		How dare you accept the offer of 1e1000 cookies. Give me one good reason I shouldn't delete your
+		save file.<br>
+		<input id='reason'></input>
+		
+		<script>
+			document.getElementById('reason').addEventListener("keydown", function(evt) {
+				if (evt.keyCode === 13) {
+					getReason();
+				}
+			});
+			function getReason() {
+				let reason = document.getElementById('reason').value;
+				document.write('Meh, good enough');
+				setTimeout(window.close, 2000);
+			}
+		</script>
+	</body>
+</html>
