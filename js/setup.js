@@ -26,6 +26,7 @@ class Game {
 		}
     
     this.unfunityPoints = new Decimal(0)
+    this.unfunityPointsMult = new Decimal(1)
     this.unfunityGalaxies = new Decimal(0)
 		
 		// Begin Data Objects
@@ -1597,6 +1598,15 @@ class Game {
 				onBuy: () => mag(15, 8),
 				visReq: () => ggte(15, 7, 1),
 				purpose: 'Multiplies fractal engine efficiency by 8.'
+			},
+      // Unfunity upgrades
+			{
+				name: 'Unfun Cookies',
+				cost: new Decimal('1e250'),
+				icon: 'assets/img/cookie.png',
+				onBuy: () => mag(15, 8),
+				visReq: () => ggte(15, 7, 1),
+				purpose: 'Multiplies unfunity power gain by 2.'
 			}
 		]
 		
@@ -1864,7 +1874,7 @@ class Game {
 		this.autosaveintv = 10;
 		document.getElementById('asintv').value = this.autosaveintv;
 
-		this.vers = '1.3.3';
+		this.vers = '1.3.4';
 		
 		if (data != undefined) {
 			try {
@@ -1879,6 +1889,7 @@ class Game {
         
         this.unfunityPoints = new Decimal(data.unfunityPoints)
         this.unfunityGalaxies = new Decimal(data.unfunityGalaxies)
+        this.unfunityPointsMult = new Decimal(data.unfunityPointsMult)
 				
 				for (let i = 0; i < data.generators.length; i++) {
 					this.generators[i] = [];
