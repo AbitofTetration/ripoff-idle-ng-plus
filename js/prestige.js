@@ -1,8 +1,23 @@
 let prestigeReach = Number.MAX_SAFE_INTEGER
 
+function getPrestigePointGain() {
+  let q = new Decimal(1)
+  
+  
+  
+  
+  
+  let m = game.cookies.pow(1/308).mul(q)
+  
+  return q
+}
+
 function prestige() {
+    switchTab(0)
+    switchSubTab(0)
+    
     if(game.cookies.lt(prestigeReach)) return;
-    game.prestigePoints = game.prestigePoints.add(game.cookies.pow(1/308))
+    game.prestigePoints = game.prestigePoints.add(getPrestigePointGain())
   
 		game.cookies = new Decimal(0);
 		game.cps = new Decimal(0);
@@ -28,13 +43,22 @@ function prestige() {
   
 }
 
-function showprestige() {
-  setElem('unfunity', game.unfunityPoints.toFixed(2))
-  setElem('unfunityBoost', getUnfunityBoost().toFixed(2))
-  setElem('unfunity/sec', updateUnfunity(1).toFixed(2))
+function getPrestigePointPower() {
+  let q = new Decimal(1)
+  
+  q = q.add(game.prestigePoints.add(1).pow(0.005).div(100)).max(1)
+  
+  return q;
+}
 
-  setElem('unfunGalaxies', game.unfunityGalaxies.toFixed(2))
-  setElem('unfunGalaxyBoost', getGalaxyBoost().toFixed(2))
-  setElem('unfunGalaxyThreshold', Decimal.sumGeometricSeries(new Decimal(1), new Decimal(5), new Decimal(4), game.unfunityGalaxies).floor())
-  setElem('unfunityMult', getUnfunityMult().toFixed(2))
+function showprestige() {
+  setElem('prestigePointGain', getPrestigePointGain().toFixed(2))
+  setElem('prestigeGain', game.prestigePoints.toFixed(2))
+  setElem('prestigeboost', getPrestigePointPower().toFixed(8))
+  
+  if(game.prestigePoints.gt(0) || game.cookies.gt(prestigeReach)) {
+    show('prestige')
+  } else {
+    hide('prestige')
+  }
 }
