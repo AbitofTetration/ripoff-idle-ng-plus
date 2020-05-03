@@ -45,7 +45,7 @@ function prestige() {
 function getPrestigePointPower() {
   let q = new Decimal(1)
   
-  q = q.add(game.prestigePoints.add(1).pow(0.005).div(100)).minus(0.01).max(1)
+  q = q.add(game.prestigePoints.add(1).pow(0.05).div(100)).minus(0.01).max(1)
   
   return q;
 }
