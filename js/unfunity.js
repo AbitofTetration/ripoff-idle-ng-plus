@@ -12,7 +12,7 @@ function updateUnfunity(time) {
     game.unfunityPoints = game.unfunityPoints.add(q)
   }
   game.unfunityGalaxies = Decimal.affordGeometricSeries(game.unfunityPoints, new Decimal(5), new Decimal(4), new Decimal(-1)).floor()
-  if(game.cookies.gt(1e150)) return q.mul(400)
+  if(game.cookies.gt(1e150)) return q.mul(400).pow(getPrestigePointPower())
   return 0
 }
 

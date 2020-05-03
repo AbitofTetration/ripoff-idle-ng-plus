@@ -1,4 +1,4 @@
-let prestigeReach = Number.MAX_SAFE_INTEGER
+let prestigeReach = Number.MAX_VALUE
 
 function getPrestigePointGain() {
   let q = new Decimal(1)
@@ -13,10 +13,9 @@ function getPrestigePointGain() {
 }
 
 function prestige() {
+    if(game.cookies.lt(prestigeReach)) return;
     switchTab(0)
     switchSubTab(0)
-    
-    if(game.cookies.lt(prestigeReach)) return;
     game.prestigePoints = game.prestigePoints.add(getPrestigePointGain())
   
 		game.cookies = new Decimal(0);
@@ -46,7 +45,7 @@ function prestige() {
 function getPrestigePointPower() {
   let q = new Decimal(1)
   
-  q = q.add(game.prestigePoints.add(1).pow(0.005).div(100)).max(1)
+  q = q.add(game.prestigePoints.add(1).pow(0.005).div(100)).minus(0.01).max(1)
   
   return q;
 }
