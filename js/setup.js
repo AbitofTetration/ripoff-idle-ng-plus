@@ -1877,7 +1877,7 @@ class Game {
 		this.autosaveintv = 10;
 		document.getElementById('asintv').value = this.autosaveintv;
 
-		this.vers = '1.3.4';
+		this.vers = '0.1.0';
 		
 		if (data != undefined) {
 			try {
