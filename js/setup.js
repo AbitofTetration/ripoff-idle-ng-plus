@@ -28,6 +28,9 @@ class Game {
     this.unfunityPoints = new Decimal(0)
     this.unfunityPointsMult = new Decimal(1)
     this.unfunityGalaxies = new Decimal(0)
+    
+    this.prestigePoints = new Decimal(0)
+    this.prestigeUpgrades = [new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)]
 		
 		// Begin Data Objects
 		this.upgradeData = [
@@ -1900,6 +1903,11 @@ class Game {
 							this.generators[i][j] = new Generator(i, j, 0, 0, 1);
 						}
 					}
+				}
+        
+        this.prestigePoints = new Decimal(data.prestigePoints)
+				for (let i = 0; i < data.prestigeUpgrades.length; i++) {
+					this.prestigeUpgrades[i] = new Decimal(data.prestigeUpgrades[i]);
 				}
 				
 				if (data.unlockedGens) {
