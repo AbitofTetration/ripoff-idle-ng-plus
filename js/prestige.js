@@ -66,4 +66,7 @@ function showprestige() {
   } else {
     hide('prestigeButton')
   }
+
+  setElem('prestigeUpgrade1Boost', new Decimal(1).toFixed(2))
+  setElem('prestigeUpgrade1Cost', new Decimal(1).toFixed(2))
 }
