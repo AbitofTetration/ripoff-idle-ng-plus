@@ -50,6 +50,14 @@ function getPrestigePointPower() {
   return q;
 }
 
+function getPrestigeCost(number) {
+  let q = new Decimal([1,3,5,10,25][number-1]).mul(game.prestigeUpgrades[5,5,5,10,25][number-1])
+  
+  let e = Decimal.affordGeometricSeries(game.prestigePoints)
+  
+  return q
+}
+
 function showprestige() {
   setElem('prestigePointGain', getPrestigePointGain().toFixed(2))
   setElem('prestigeGain', game.prestigePoints.toFixed(2))
@@ -68,5 +76,5 @@ function showprestige() {
   }
 
   setElem('prestigeUpgrade1Boost', new Decimal(1).toFixed(2))
-  setElem('prestigeUpgrade1Cost', new Decimal(1).toFixed(2))
+  setElem('prestigeUpgrade1Cost', getPrestigeCost(1).toFixed(2))
 }
