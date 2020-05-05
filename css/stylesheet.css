@@ -353,6 +353,15 @@ sup {
 	border-style: inset;
 }
 
+.prest {
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	background-color: gold;
+	float: left;
+	border-color: black;
+}
+
 .cost::before {
 	background-image: url('../assets/img/cookie.png');
     background-size: 10px 10px;
