@@ -144,11 +144,14 @@
 						<button onclick='prestige()' class='prest' id='prestigeButton'>
 							<p>Prestige</p> for <span id='prestigePointGain'></span> prestige points.
 						</button><br>
-						<button class='prest' id='prestigeUpgrade1'>
+						<button class='prest' id='prestigeUpgrade1' onclick='buyPrestigeUpgrade(0)'>
 							Multiply all production by 5.00x<br>Currently: <span id='prestigeUpgrade1Boost'></span>x<br>Cost: <span id='prestigeUpgrade1Cost'></span> PP
 						</button>
-						<button class='prest' id='prestigeUpgrade2'>
+						<button class='prest' id='prestigeUpgrade2' onclick='buyPrestigeUpgrade(1)'>
 							Multiply unfunity production by 1.20x<br>Currently: <span id='prestigeUpgrade2Boost'></span>x<br>Cost: <span id='prestigeUpgrade2Cost'></span> PP
+						</button>
+						<button class='prest' id='prestigeUpgrade3' onclick='buyPrestigeUpgrade(2)'>
+							Boost the formula of prestige point boost<br>Currently: ^<span id='prestigeUpgrade3Boost'></span><br>Cost: <span id='prestigeUpgrade3Cost'></span> PP
 						</button>
             </div>
 				</div>

@@ -129,8 +129,8 @@ class Generator {
 	
 	update() {
 		this.price = this.basePrice.multiply(this.multPerDim.pow(this.dim)).multiply(new Decimal(1.15).pow(this.bought));
-		this.totalCps = this.baseCps.multiply(this.amount).multiply(this.mult).multiply(getUnfunityBoost()).pow(getPrestigePointPower());
-		this.eachCps = this.baseCps.multiply(this.mult).multiply(getUnfunityBoost()).pow(getPrestigePointPower());
+		this.totalCps = this.baseCps.multiply(this.amount).multiply(this.mult).multiply(getUnfunityBoost()).pow(getPrestigePointPower()).multiply(getPrestigeBoosts(1));
+		this.eachCps = this.baseCps.multiply(this.mult).multiply(getUnfunityBoost()).pow(getPrestigePointPower()).multiply(getPrestigeBoosts(1));
 	}
 	
 	incAmount(q) {

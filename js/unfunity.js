@@ -34,6 +34,7 @@ function getUnfunityMult() {
   
   q = q.mul(game.tps.log(10).div(20).add(1))
   q = q.mul(game.unfunityGalaxies.add(10).log(10).pow(0.1).max(1))
+  q = q.multiply(getPrestigeBoosts(2))
   
   return q
 }
