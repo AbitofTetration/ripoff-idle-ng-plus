@@ -16,6 +16,7 @@ function prestige() {
     if(game.cookies.lt(prestigeReach)) return;
     switchTab(0)
     switchSubTab(0)
+    game.prestiges = game.prestiges.add(1)
     game.prestigePoints = game.prestigePoints.add(getPrestigePointGain())
   
 		game.cookies = new Decimal(0);
@@ -81,7 +82,7 @@ function showprestige() {
   setElem('prestigeGain', game.prestigePoints.toFixed(2))
   setElem('prestigeboost', getPrestigePointPower().toFixed(8))
   
-  if(game.prestigePoints.gt(0) || game.cookies.gt(prestigeReach)) {
+  if(game.prestiges.gt(0) || game.cookies.gt(prestigeReach)) {
     show('prestige')
   } else {
     hide('prestige')
@@ -92,6 +93,8 @@ function showprestige() {
   } else {
     hide('prestigeButton')
   }
+  
+  setElem('statprest', 'Prestiges: ' + game.prestiges)
 
   setElem('prestigeUpgrade1Boost', getPrestigeBoosts(1).toFixed(2))
   setElem('prestigeUpgrade1Cost', getPrestigeCost(1).toFixed(2))
