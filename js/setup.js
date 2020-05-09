@@ -30,6 +30,7 @@ class Game {
     this.unfunityGalaxies = new Decimal(0)
     
     this.prestigePoints = new Decimal(0)
+    this.prestiges = new Decimal(0)
     this.prestigeUpgrades = [new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)]
 		
 		// Begin Data Objects
@@ -1906,6 +1907,7 @@ class Game {
 				}
         
         this.prestigePoints = new Decimal(data.prestigePoints)
+        this.prestiges = new Decimal(data.prestiges)
 				for (let i = 0; i < data.prestigeUpgrades.length; i++) {
 					this.prestigeUpgrades[i] = new Decimal(data.prestigeUpgrades[i]);
 				}

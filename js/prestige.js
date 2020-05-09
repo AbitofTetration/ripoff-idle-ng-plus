@@ -65,10 +65,10 @@ function buyPrestigeUpgrade(number) {
 function getPrestigeBoosts(number) {
   switch(number) {
     case 1:
-      return Decimal.pow(5, game.prestigeUpgrades[0])
+      return Decimal.pow(25, game.prestigeUpgrades[0])
       break;
     case 2:
-      return Decimal.pow(1.2, game.prestigeUpgrades[1])
+      return Decimal.pow(1.5, game.prestigeUpgrades[1])
       break;
     case 3:
       return Decimal.pow(1.05, game.prestigeUpgrades[2])
