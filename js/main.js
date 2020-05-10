@@ -52,6 +52,11 @@ function load() {
 	}
 }
 
+function tip() { // Display tips
+  let tip = ['Buying more 8th tier buildings boost UP gain.', 'When in doubt, grind unfunity points.'][Math.floor(Math.random()*2)]
+  new TipPopup(tip).popup();
+}
+
 function init() {
 	if (!load()) {
 		setup();
@@ -62,6 +67,7 @@ function init() {
 		i.testBought();
 	}
 	let loop = setInterval(gameLoop, 50);
+  setInterval(tip(), 5000);
 }
 
 function gameLoop() {

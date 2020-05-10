@@ -70,9 +70,3 @@ class TipPopup {
 		}, 5000);
 	}
 }
-
-function tip() {
-  let tip = ['Buying more 8th tier buildings boosts Unfunity Point gain.', 'When in doubt, grind unfunity points.'][Math.floor(Math.random()*2)]
-  new TipPopup(tip).popup();
-}
-setInterval(tip(), 5000);
