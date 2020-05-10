@@ -14,6 +14,9 @@ function getPrestigePointGain() {
 
 function prestige() {
     if(game.cookies.lt(prestigeReach)) return;
+	  for (let i of game.upgrades) {
+	  	i.testBought();
+	  }
     switchTab(0)
     switchSubTab(0)
     game.prestiges = game.prestiges.add(1)
