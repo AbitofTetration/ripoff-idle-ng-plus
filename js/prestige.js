@@ -6,10 +6,10 @@ function getPrestigePointGain() {
   
   
   
-  
+  q = q.mul(getPrestigeBoosts)
   let m = game.cookies.pow(1/308).mul(q)
   
-  return q
+  return m
 }
 
 function prestige() {
@@ -55,7 +55,7 @@ function getPrestigePointPower() {
 }
 
 function getPrestigeCost(number) {
-  let q = new Decimal([1,3,5,10,25][number-1]).mul(Decimal.pow([5,5,5,10,25][number-1], game.prestigeUpgrades[number-1]))
+  let q = new Decimal([1,3,5,1,25][number-1]).mul(Decimal.pow([5,5,5,10,25][number-1], game.prestigeUpgrades[number-1]))
   
   return q
 }
@@ -63,7 +63,7 @@ function getPrestigeCost(number) {
 function buyPrestigeUpgrade(number) {
   if(game.prestigePoints.lt(getPrestigeCost(number))) return;
   game.prestigePoints = game.prestigePoints.sub(getPrestigeCost(number))
-  game.prestigeUpgrades[number] = game.prestigeUpgrades[number].add(1)
+  game.prestigeUpgrades[number-1] = game.prestigeUpgrades[number-1].add(1)
 }
 
 function getPrestigeBoosts(number) {
@@ -76,6 +76,9 @@ function getPrestigeBoosts(number) {
       break;
     case 3:
       return Decimal.pow(1.05, game.prestigeUpgrades[2])
+      break;
+    case 4:
+      return Decimal.pow(2, game.prestigeUpgrades[3])
       break;
   }
 }
@@ -107,4 +110,7 @@ function showprestige() {
 
   setElem('prestigeUpgrade3Boost', getPrestigeBoosts(3).toFixed(2))
   setElem('prestigeUpgrade3Cost', getPrestigeCost(3).toFixed(2))
+
+  setElem('prestigeUpgrade4Boost', getPrestigeBoosts(4).toFixed(2))
+  setElem('prestigeUpgrade4Cost', getPrestigeCost(4).toFixed(2))
 }
