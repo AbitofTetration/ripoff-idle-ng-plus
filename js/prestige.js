@@ -6,8 +6,8 @@ function getPrestigePointGain() {
   
   
   
-  q = q.mul(getPrestigeBoosts)
-  let m = game.cookies.pow(1/308).mul(q)
+  q = q.mul(getPrestigeBoosts(4))
+  let m = game.cookies.pow(1/308).div(10).mul(q)
   
   return m
 }
