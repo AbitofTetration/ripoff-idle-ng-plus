@@ -2,6 +2,7 @@ function getGalaxyBoost() {
   let q = game.unfunityGalaxies.add(1)
   
   q = q.max(1).pow(3.5)
+  q = q.mul(getPrestigeBoosts(5))
   
   return q
 }
