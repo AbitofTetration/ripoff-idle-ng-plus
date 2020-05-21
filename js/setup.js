@@ -31,7 +31,8 @@ class Game {
     
     this.prestigePoints = new Decimal(0)
     this.prestiges = new Decimal(0)
-    this.prestigeUpgrades = [new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)]
+    this.prestigeUpgrades = [new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), 
+                             new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)]
 		
 		// Begin Data Objects
 		this.upgradeData = [
