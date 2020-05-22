@@ -40,9 +40,7 @@ function prestige() {
     game.unfunityPoints = new Decimal(0)
     game.unfunityPointsMult = new Decimal(1)
     game.unfunityGalaxies = new Decimal(0)
-	  for (let i of game.upgrades) {
-	  	i.testBought();
-	  }
+	  game.upgrades.forEach((x)=>{x.bought=false})
 }
 
 function getPrestigePointPower() {
