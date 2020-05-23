@@ -41,12 +41,12 @@ function getUnfunityMult() {
 }
 
 function showunfunity() {
-  setElem('unfunity', game.unfunityPoints.toFixed(2))
-  setElem('unfunityBoost', getUnfunityBoost().toFixed(2))
-  setElem('unfunity/sec', updateUnfunity(1).toFixed(2))
+  setElem('unfunity', displayNum(game.unfunityPoints))
+  setElem('unfunityBoost', displayNum(getUnfunityBoost()))
+  setElem('unfunity/sec', displayNum(updateUnfunity(1)))
 
-  setElem('unfunGalaxies', game.unfunityGalaxies.toFixed(2))
-  setElem('unfunGalaxyBoost', getGalaxyBoost().toFixed(2))
-  setElem('unfunGalaxyThreshold', Decimal.sumGeometricSeries(new Decimal(1), new Decimal(5), new Decimal(4), game.unfunityGalaxies).floor())
-  setElem('unfunityMult', getUnfunityMult().toFixed(2))
+  setElem('unfunGalaxies', displayNum(game.unfunityGalaxies))
+  setElem('unfunGalaxyBoost', displayNum(getGalaxyBoost()))
+  setElem('unfunGalaxyThreshold', displayNum(Decimal.sumGeometricSeries(new Decimal(1), new Decimal(5), new Decimal(4), game.unfunityGalaxies)))
+  setElem('unfunityMult', displayNum(getUnfunityMult()))
 }

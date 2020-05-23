@@ -84,9 +84,9 @@ function getPrestigeBoosts(number) {
 }
 
 function showprestige() {
-  setElem('prestigePointGain', getPrestigePointGain().toFixed(2))
-  setElem('prestigeGain', game.prestigePoints.toFixed(2))
-  setElem('prestigeboost', getPrestigePointPower().toFixed(8))
+  setElem('prestigePointGain', displayNum(getPrestigePointGain()))
+  setElem('prestigeGain', displayNum(game.prestigePoints))
+  setElem('prestigeboost', displayNum(getPrestigePointPower(), false, 8))
   
   if(game.prestiges.gt(0) || game.cookies.gt(prestigeReach)) {
     show('prestige')
@@ -100,20 +100,20 @@ function showprestige() {
     hide('prestigeButton')
   }
   
-  setElem('statprest', 'Prestiges: ' + game.prestiges)
+  setElem('statprest', 'Prestiges: ' + displayNum(game.prestiges))
 
-  setElem('prestigeUpgrade1Boost', getPrestigeBoosts(1).toFixed(2))
-  setElem('prestigeUpgrade1Cost', getPrestigeCost(1).toFixed(2))
+  setElem('prestigeUpgrade1Boost', displayNum(getPrestigeBoosts(1)))
+  setElem('prestigeUpgrade1Cost', displayNum(getPrestigeCost(1)))
 
-  setElem('prestigeUpgrade2Boost', getPrestigeBoosts(2).toFixed(2))
-  setElem('prestigeUpgrade2Cost', getPrestigeCost(2).toFixed(2))
+  setElem('prestigeUpgrade2Boost', displayNum(getPrestigeBoosts(2)))
+  setElem('prestigeUpgrade2Cost', displayNum(getPrestigeCost(2)))
 
-  setElem('prestigeUpgrade3Boost', getPrestigeBoosts(3).toFixed(2))
-  setElem('prestigeUpgrade3Cost', getPrestigeCost(3).toFixed(2))
+  setElem('prestigeUpgrade3Boost', displayNum(getPrestigeBoosts(3)))
+  setElem('prestigeUpgrade3Cost', displayNum(getPrestigeCost(3)))
 
-  setElem('prestigeUpgrade4Boost', getPrestigeBoosts(4).toFixed(2))
-  setElem('prestigeUpgrade4Cost', getPrestigeCost(4).toFixed(2))
+  setElem('prestigeUpgrade4Boost', displayNum(getPrestigeBoosts(4)))
+  setElem('prestigeUpgrade4Cost', displayNum(getPrestigeCost(4)))
 
-  setElem('prestigeUpgrade5Boost', getPrestigeBoosts(5).toFixed(2))
-  setElem('prestigeUpgrade5Cost', getPrestigeCost(5).toFixed(2))
+  setElem('prestigeUpgrade5Boost', displayNum(getPrestigeBoosts(5)))
+  setElem('prestigeUpgrade5Cost', displayNum(getPrestigeCost(5)))
 }

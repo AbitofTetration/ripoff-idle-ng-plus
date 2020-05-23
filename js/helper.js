@@ -44,9 +44,9 @@ function setElem(id, content) {
 	}
 }
 
-function displayNum(decimal, floor) {
+function displayNum(decimal, floor, accuracy) {
 	if (decimal instanceof Decimal){
-		if (floor) {
+		if (floor == true) {
 			if (decimal.lt(1)) {
 				return decimal.floor().toPrecision(1);
 			} else if (decimal.lt(10)) {
@@ -55,6 +55,17 @@ function displayNum(decimal, floor) {
 				return decimal.floor().toPrecision(2).toString().replace('+', '');
 			} else {
 				return decimal.floor().toPrecision(3).toString().replace('+', '');
+			}
+      
+    } else if (accuracy > 1) {
+			if (decimal.lt(1)) {
+				return decimal.floor().toPrecision(accuracy);
+			} else if (decimal.lt(10)) {
+				return decimal.floor().toPrecision(accuracy).toString().replace('+', '');
+			} else if (decimal.lt(100)) {
+				return decimal.floor().toPrecision(accuracy).toString().replace('+', '');
+			} else {
+				return decimal.floor().toPrecision(accuracy).toString().replace('+', '');
 			}
 
 		} else {
