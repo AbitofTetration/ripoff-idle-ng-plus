@@ -85,6 +85,9 @@ function gameLoop() {
       i.buy()
     }
   }
+  if(game.prestigeUpgrades[7].gt(0)) {
+    cookieClick()
+  }
 	game.autosaveintv = new Decimal(document.getElementById('asintv').value);
 	game.buyAmount = new Decimal(document.getElementById('bulk').value);
 	hide('loading');
