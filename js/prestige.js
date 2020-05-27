@@ -52,7 +52,7 @@ function getPrestigePointPower() {
 }
 
 function getPrestigeCost(number) {
-  let q = new Decimal([1,3,5,1,5][number-1]).mul(Decimal.pow([5,5,5,10,5][number-1], game.prestigeUpgrades[number-1]))
+  let q = new Decimal([1,3,5,1,5,10,3][number-1]).mul(Decimal.pow([5,5,5,10,5,Infinity,8][number-1], game.prestigeUpgrades[number-1]))
   
   return q
 }
@@ -79,6 +79,9 @@ function getPrestigeBoosts(number) {
       break;
     case 5:
       return Decimal.pow(game.prestiges.pow(0.02).add(1), game.prestigeUpgrades[4]).max(1)
+      break;
+    case 7:
+      return Decimal.pow(game.prestigePoints.pow(0.02), game.prestigeUpgrades[7]).max(1)
       break;
   }
 }
@@ -116,4 +119,11 @@ function showprestige() {
 
   setElem('prestigeUpgrade5Boost', displayNum(getPrestigeBoosts(5)))
   setElem('prestigeUpgrade5Cost', displayNum(getPrestigeCost(5)))
+
+  setElem('prestigeUpgrade7Boost', displayNum(getPrestigeBoosts(7)))
+  setElem('prestigeUpgrade7Cost', displayNum(getPrestigeCost(7)))
+  
+  setElem('prestigeUpgrade6Cost', (game.prestigeUpgrades[5].gt(0) ? "Bought" : "Cost: " + displayNum(getPrestigeCost(6)) + " PP"))
+  
+  setElem('prestigeUpgrade8Cost', (game.prestigeUpgrades[5].gt(0) ? "Bought" : "Cost: " + displayNum(getPrestigeCost(6)) + " PP"))
 }

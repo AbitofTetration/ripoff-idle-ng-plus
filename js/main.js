@@ -80,6 +80,11 @@ function gameLoop() {
 	for (let i of game.achievements) {
 		i.updUnlock();
 	}
+  if(game.prestigeUpgrades[5].gt(0)) {
+    for (let i of game.upgrades) {
+      i.buy()
+    }
+  }
 	game.autosaveintv = new Decimal(document.getElementById('asintv').value);
 	game.buyAmount = new Decimal(document.getElementById('bulk').value);
 	hide('loading');
