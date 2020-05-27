@@ -79,10 +79,10 @@ function getPrestigeBoosts(number) {
       return Decimal.pow(2, game.prestigeUpgrades[3])
       break;
     case 5:
-      return Decimal.pow(game.prestiges.pow(0.02).add(1), game.prestigeUpgrades[4]).max(1)
+      return Decimal.pow(game.prestiges.pow(0.02), game.prestigeUpgrades[4]).add(1)
       break;
     case 7:
-      return Decimal.pow(game.unfunityPoints.pow(0.2).mul(1.5), game.prestigeUpgrades[7]).max(1)
+      return Decimal.pow(game.unfunityPoints.pow(0.2).mul(1.5), game.prestigeUpgrades[7]).add(1)
       break;
   }
 }
