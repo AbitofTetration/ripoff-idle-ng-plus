@@ -10,10 +10,21 @@ function switchShopTab(i) {
 	game.shoptab = i;
 }
 
+function getClickProd() {
+  let q = new Decimal(1)
+  
+  for (let i = 0; i < 16; i++) {
+    let m = game.generators[i][7].amount.mul((i*2)+1)
+    q = q.add(m)
+  }
+  
+  return q
+}
+
 function cookieClick() {
-	game.cookies = game.cookies.add(game.clickPro);
-	game.cookiesFromClicks = game.cookiesFromClicks.add(game.clickPro);
-	game.totalProdCookies = game.totalProdCookies.add(game.clickPro);
+	game.cookies = game.cookies.add(getClickProd());
+	game.cookiesFromClicks = game.cookiesFromClicks.add(getClickProd());
+	game.totalProdCookies = game.totalProdCookies.add(getClickProd());
 	game.cookieClicks++;
 }
 
@@ -59,13 +70,13 @@ function displayNum(decimal, floor, accuracy) {
       
     } else if (accuracy > 1) {
 			if (decimal.lt(1)) {
-				return decimal.floor().toPrecision(accuracy);
+				return decimal.toPrecision(accuracy);
 			} else if (decimal.lt(10)) {
-				return decimal.floor().toPrecision(accuracy).toString().replace('+', '');
+				return decimal.toPrecision(accuracy).toString().replace('+', '');
 			} else if (decimal.lt(100)) {
-				return decimal.floor().toPrecision(accuracy).toString().replace('+', '');
+				return decimal.toPrecision(accuracy+1).toString().replace('+', '');
 			} else {
-				return decimal.floor().toPrecision(accuracy).toString().replace('+', '');
+				return decimal.toPrecision(accuracy+2).toString().replace('+', '');
 			}
 
 		} else {

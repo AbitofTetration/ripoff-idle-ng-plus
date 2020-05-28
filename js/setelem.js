@@ -8,6 +8,7 @@ function setElems() {
 		setElem('statcookies', `Cookies: ${displayNum(game.cookies, true)}`);
 		setElem('stattotalcookies', `Total Baked Cookies: ${displayNum(game.totalProdCookies, true)}`);
 		setElem('statcookieclicks', `Cookie Clicks: ${game.cookieClicks}`);
+		setElem('statcookclctot', `Cookies per Click: ${displayNum(getClickProd())}`);
 		setElem('statcps', `Cookies per Second: ${displayNum(game.cps)}`);
 	} else if (game.subtab == 1)  {
 		setElem('up', `${game.boughtUpgrades} / ${game.upgrades.length}`);

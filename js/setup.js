@@ -9,7 +9,6 @@ class Game {
 		this.cookiesFromClicks = new Decimal(0);
 		this.totalProdCookies = new Decimal(0);
 		this.cps = new Decimal(0);
-		this.clickPro = new Decimal(1);
 		this.tps = new Decimal(20);
 		this.tpsc = new Decimal(100);
 		this.tsu = new Decimal(0);
@@ -1884,7 +1883,6 @@ class Game {
 		if (data != undefined) {
 			try {
 				this.cookies = new Decimal(data.cookies);
-				this.clickPro = new Decimal(data.clickPro);
 				this.cookieClicks = data.cookieClicks;
 				this.cookiesFromClicks = new Decimal(data.cookiesFromClicks);
 				this.totalProdCookies = new Decimal(data.totalProdCookies);
