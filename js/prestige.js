@@ -87,8 +87,6 @@ function getPrestigeBoosts(number) {
   }
 }
 
-help
-
 function showprestige() {
   setElem('prestigePointGain', displayNum(getPrestigePointGain()))
   setElem('prestigeGain', displayNum(game.prestigePoints))
