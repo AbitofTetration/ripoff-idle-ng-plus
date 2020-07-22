@@ -13,10 +13,14 @@ function switchShopTab(i) {
 function getClickProd() {
   let q = new Decimal(1)
   
+  q = q.mul(getUnfunityBoost())
+  
   for (let i = 0; i < 16; i++) {
     let m = game.generators[i][7].amount.mul((i*2)+1)
     q = q.add(m)
   }
+
+ // q = q.mul(getUnfunityBoost())
   
   return q
 }
