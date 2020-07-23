@@ -1,7 +1,7 @@
 function getGalaxyBoost() {
   let q = game.unfunityGalaxies.add(1)
   
-  q = q.max(1).pow(3.5)
+  q = q.max(1).pow(0.32)
   q = q.mul(getPrestigeBoosts(5))
   
   return q
@@ -20,7 +20,7 @@ function updateUnfunity(time) {
 function getUnfunityBoost() {
   let q = game.unfunityPoints.add(1)
   
-  q = q.max(1).mul(getGalaxyBoost())
+  q = q.max(1).pow(getGalaxyBoost())
   
   return q
 }
@@ -43,7 +43,7 @@ function getUnfunityMult() {
 function showunfunity() {
   setElem('unfunity', displayNum(game.unfunityPoints))
   setElem('unfunityBoost', displayNum(getUnfunityBoost()))
-  setElem('unfunity/sec', displayNum(updateUnfunity(1)))
+  setElem('unfunity/sec', displayNum(updateUnfunity(33)))
 
   setElem('unfunGalaxies', displayNum(game.unfunityGalaxies))
   setElem('unfunGalaxyBoost', displayNum(getGalaxyBoost()))
