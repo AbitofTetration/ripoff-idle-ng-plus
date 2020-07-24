@@ -2,6 +2,7 @@ function getGalaxyBoost() {
   let q = game.unfunityGalaxies.add(1)
   
   q = q.mul(getPrestigeBoosts(5))
+  q = q.mul(Decimal.pow(1.1, game.ascensions))
   q = q.pow(0.59).max(1)
   
   return q
@@ -38,6 +39,17 @@ function getUnfunityMult() {
   q = q.multiply(getPrestigeBoosts(2))
   
   return q
+}
+
+function getAscendCost() {
+  let q = game.ascensions.add(1.43)
+  q = q.pow(1.2)
+}
+
+function ascend() {
+  if (game.unfunityPoints.lt(getAscendCost())) return;
+  game.ascensions = game.ascensions.add(1)
+  game.unfunityPoints = new Decimal(0)
 }
 
 function showunfunity() {
