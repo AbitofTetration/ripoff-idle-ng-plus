@@ -74,5 +74,6 @@ function showunfunity() {
   setElem('unfunityMult', displayNum(getUnfunityMult()))
 
   setElem('ascensions', displayNum(game.ascensions))
+  setElem('ascensionCost', displayNum(getAscendCost()))
   setElem('ascensionBoost', displayNum(getAscensionBoost()))
 }
