@@ -41,6 +41,12 @@ function getUnfunityMult() {
 }
 
 function showunfunity() {
+
+  if(game.cookies.gt(1e150)) {
+    show('unfunity')
+  } else {
+    hide('unfunity')
+  }
   setElem('unfunity', displayNum(game.unfunityPoints))
   setElem('unfunityBoost', displayNum(getUnfunityBoost()))
   setElem('unfunity/sec', displayNum(updateUnfunity(33)))
