@@ -49,6 +49,7 @@ function getUnfunityMult() {
 function getAscendCost() {
   let q = game.ascensions.add(1.43)
   q = q.pow(1.2)
+  return q
 }
 
 function ascend() {
