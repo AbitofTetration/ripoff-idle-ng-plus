@@ -43,9 +43,9 @@ function getUnfunityMult() {
 function showunfunity() {
 
   if(game.cookies.gt(1e150)) {
-    show('unfunity')
+    show('unfun')
   } else {
-    hide('unfunity')
+    hide('unfun')
   }
   setElem('unfunity', displayNum(game.unfunityPoints))
   setElem('unfunityBoost', displayNum(getUnfunityBoost()))
