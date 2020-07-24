@@ -72,4 +72,7 @@ function showunfunity() {
   setElem('unfunGalaxyBoost', displayNum(getGalaxyBoost()))
   setElem('unfunGalaxyThreshold', displayNum(Decimal.sumGeometricSeries(new Decimal(1), new Decimal(5), new Decimal(4), game.unfunityGalaxies)))
   setElem('unfunityMult', displayNum(getUnfunityMult()))
+
+  setElem('ascensions', displayNum(game.ascensions))
+  setElem('ascensionBoost', displayNum(getAscensionBoost()))
 }
