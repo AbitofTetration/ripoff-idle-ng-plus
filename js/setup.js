@@ -32,6 +32,8 @@ class Game {
     this.prestiges = new Decimal(0)
     this.prestigeUpgrades = [new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), 
                              new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)]
+
+    this.ascensions = new Decimal(0)
 		
 		// Begin Data Objects
 		this.upgradeData = [
@@ -1906,6 +1908,7 @@ class Game {
 				}
         
         this.prestigePoints = new Decimal(data.prestigePoints)
+        this.ascensions = new Decimal(data.ascensions)
         this.prestiges = new Decimal(data.prestiges)
 				for (let i = 0; i < data.prestigeUpgrades.length; i++) {
 					this.prestigeUpgrades[i] = new Decimal(data.prestigeUpgrades[i]);
