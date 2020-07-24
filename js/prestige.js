@@ -53,7 +53,7 @@ function getPrestigePointPower() {
 }
 
 function getPrestigeCost(number) {
-  let q = new Decimal([1,3,5,1,5,10,8,10][number-1]).mul(Decimal.pow([5,5,5,10,5,Infinity,8,Infinity][number-1], game.prestigeUpgrades[number-1]))
+  let q = new Decimal([1,2,3,1,3,5,5,15][number-1]).mul(Decimal.pow([5,5,5,10,5,Infinity,8,Infinity][number-1], game.prestigeUpgrades[number-1]))
   
   return q
 }
