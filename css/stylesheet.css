@@ -396,6 +396,29 @@ sup {
 	float: left;
 	border-color: gold;
 }
+.ascend {
+	display: inline-block;
+	width: 175px;
+	height: 175px;
+	background: radial-gradient(
+			ellipse farthest-corner at right bottom,
+			#d437fe 0%,
+			#ae3acd 8%,
+			#953aad 30%,
+			#733185 40%,
+			transparent 80%
+		),
+		radial-gradient(
+			ellipse farthest-corner at left top,
+			#ffffff 0%,
+			#edacff 8%,
+			#9964D1 25%,
+			#411f5d 62.5%,
+			#411f5d 100%
+		) !important;
+	float: left;
+	color: white;
+}
 
 .prestnorm {
 	display: inline-block;
