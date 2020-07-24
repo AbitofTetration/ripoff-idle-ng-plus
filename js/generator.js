@@ -99,19 +99,19 @@ class Generator {
 			case 13:
 				this.type = 'Prism';
 				this.basePrice = new Decimal(2.1e15);
-				this.multPerDim = new Decimal(1e39);
+				this.multPerDim = new Decimal(1e35);
 				this.baseCps = new Decimal(2.9e9);
 				break;
 			case 14:
 				this.type = 'Chancemaker';
 				this.basePrice = new Decimal(1.6e16);
-				this.multPerDim = new Decimal(1e45);
+				this.multPerDim = new Decimal(1e39);
 				this.baseCps = new Decimal(2.1e10);
 				break;
 			case 15:
 				this.type = 'Fractal Engine';
 				this.basePrice = new Decimal(3.1e17);
-				this.multPerDim = new Decimal(1e50);
+				this.multPerDim = new Decimal(1e43);
 				this.baseCps = new Decimal(1.5e11);
 		}
 		this.dim = dim;
