@@ -1,6 +1,7 @@
 function getAscensionPower() {
   let q = game.ascensions.div(20)
   
+  return q
 }
 
 function getGalaxyBoost() {
