@@ -77,9 +77,6 @@ function gameLoop() {
 	doCps();
   showunfunity();
   showprestige();
-	for (let i of game.achievements) {
-		i.updUnlock();
-	}
   if(game.prestigeUpgrades[5].gt(0)) {
     for (let i of game.upgrades) {
       i.buy()
