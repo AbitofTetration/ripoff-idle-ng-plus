@@ -6,7 +6,7 @@ class Achievement {
 		this.unlockReq = unlockReq;
 		this.unlocked = unlocked;
 	}
-	
+
 	updUnlock() {
 		if (this.unlockReq() && !this.unlocked) {
 			new AchievementPopup(this.id).popup();
@@ -17,7 +17,7 @@ class Achievement {
 	}
 }
 
-let achievementAmount = 9
+let achievementAmount = 9;
 
 let Achievements = [
 	// row 1, early game
@@ -31,7 +31,7 @@ let Achievements = [
 	["That was unfun", "Unlock unfunity."],
 	// row 2, near prestige
 	["The realer grind", "Earn 1e250 cookies. Reward: +1% cookie gain."],
-]
+];
 
 function giveAchievement(id) {
 	if(game.achievements.includes(id)) return;
@@ -41,10 +41,10 @@ function giveAchievement(id) {
 
 function updateAchievements() {
 	for(var i = 0; i < achievements; i++) {
-		var a = ge("achievement" + i)
-		a.className = game.achievements.includes(i) ? "achievementunlocked" : "achievementlocked"
-		a.innerHTML = "<br>" + Achievements[i * 2] + "<br>" + (devMode ? i : "") 
-		a.setAttribute("tooltip", Achievements[i * 2 + 1])
+		var a = ge("achievement" + i);
+		a.className = game.achievements.includes(i) ? "achievementunlocked" : "achievementlocked";
+		a.innerHTML = "<br>" + Achievements[i * 2] + "<br>" + (devMode ? i : "");
+		a.setAttribute("tooltip", Achievements[i * 2 + 1]);
 		a.style.zIndex = 1e6-i;
 	}
 }

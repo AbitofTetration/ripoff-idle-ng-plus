@@ -8,7 +8,7 @@ function showElems() {
 	}
 	
 	for (let i = 0; i < 16; i++) {
-		hide(`${game.generators[i][0].type.replace(' ', '')}Shop`);
+		hide(`${game.generators[i][0].type.replace(" ", "")}Shop`);
 	}
 	
 	for (let i = 0; i < game.upgrades.length; i++) {
@@ -34,11 +34,11 @@ function showElems() {
 	
 	show(`tab${game.tab}`);
 	show(`subtab${game.subtab}`);
-	show(`${game.generators[game.shoptab][0].type.replace(' ', '')}Shop`);
+	show(`${game.generators[game.shoptab][0].type.replace(" ", "")}Shop`);
 	if (game.autosave) {
-		setdisp('autosavetime', 'inline');
+		setdisp("autosavetime", "inline");
 	} else {
-		setdisp('autosavetime', 'none');
+		setdisp("autosavetime", "none");
 	}
 	
 	for (let i = 0; i < 16; i++) {

@@ -11,18 +11,18 @@ function switchShopTab(i) {
 }
 
 function getClickProd() {
-  let q = new Decimal(1)
-  
-  q = q.mul(getPrestigeBoosts(1))
-  
-  for (let i = 0; i < 16; i++) {
-    let m = game.generators[i][7].amount.mul((i*2)+1)
-    q = q.add(m)
-  }
+	let q = new Decimal(1);
 
-  q = q.mul(getUnfunityBoost())
-  
-  return q
+	q = q.mul(getPrestigeBoosts(1));
+
+	for (let i = 0; i < 16; i++) {
+		let m = game.generators[i][7].amount.mul((i*2)+1);
+		q = q.add(m);
+	}
+
+	q = q.mul(getUnfunityBoost());
+
+	return q;
 }
 
 function cookieClick() {
@@ -65,33 +65,33 @@ function displayNum(decimal, floor, accuracy) {
 			if (decimal.lt(1)) {
 				return decimal.floor().toPrecision(1);
 			} else if (decimal.lt(10)) {
-				return decimal.floor().toPrecision(1).toString().replace('+', '');
+				return decimal.floor().toPrecision(1).toString().replace("+", "");
 			} else if (decimal.lt(100)) {
-				return decimal.floor().toPrecision(2).toString().replace('+', '');
+				return decimal.floor().toPrecision(2).toString().replace("+", "");
 			} else {
-				return decimal.floor().toPrecision(3).toString().replace('+', '');
+				return decimal.floor().toPrecision(3).toString().replace("+", "");
 			}
-      
-    } else if (accuracy > 1) {
+
+		} else if (accuracy > 1) {
 			if (decimal.lt(1)) {
 				return decimal.toPrecision(accuracy);
 			} else if (decimal.lt(10)) {
-				return decimal.toPrecision(accuracy).toString().replace('+', '');
+				return decimal.toPrecision(accuracy).toString().replace("+", "");
 			} else if (decimal.lt(100)) {
-				return decimal.toPrecision(accuracy+1).toString().replace('+', '');
+				return decimal.toPrecision(accuracy+1).toString().replace("+", "");
 			} else {
-				return decimal.toPrecision(accuracy+2).toString().replace('+', '');
+				return decimal.toPrecision(accuracy+2).toString().replace("+", "");
 			}
 
 		} else {
 			if (decimal.lt(1)) {
 				return decimal.toPrecision(1);
 			} else if (decimal.lt(10)) {
-				return decimal.toPrecision(2).toString().replace('+', '');
+				return decimal.toPrecision(2).toString().replace("+", "");
 			} else if (decimal.lt(100)) {
-				return decimal.toPrecision(3).toString().replace('+', '');
+				return decimal.toPrecision(3).toString().replace("+", "");
 			} else {
-				return decimal.toPrecision(3).toString().replace('+', '');
+				return decimal.toPrecision(3).toString().replace("+", "");
 			}
 		}
 	}
@@ -102,11 +102,11 @@ function setdisp(id, val) {
 }
 
 function show(id) {
-	setdisp(id, '');
+	setdisp(id, "");
 }
 
 function hide(id) {
-	setdisp(id, 'none');
+	setdisp(id, "none");
 }
 
 function maxOf(typeId, dim) {
@@ -148,7 +148,7 @@ function setTooltipTo(n) {
 
 function isOverflown(e) {
 	el = document.getElementById(e);
-    return el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth;
+	return el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth;
 }
 
 function mg(typeId, dim, c) {
@@ -189,26 +189,26 @@ function aggte(typeId, c) {
 		let total = new Decimal(0);
 		amounts.forEach(function(x) {
 			total = total.add(x);
-		})
+		});
 		return total.gte(c);
 	}
 }
 
 function sortUpgrades() {
-	var div = document.querySelector('#upgradescontainer');
-	var upg = document.querySelectorAll('#upgradescontainer .upgrade');
-    var upgArr = [].slice.call(upg).sort(function (a, b) {
-        return game.upgrades[parseInt(a.id.replace('upg', ''))].cost.gt(game.upgrades[parseInt(b.id.replace('upg', ''))].cost) ? 1 : -1;
-    });
-    upgArr.forEach(function (p) {
-        div.appendChild(p);
-    });
+	var div = document.querySelector("#upgradescontainer");
+	var upg = document.querySelectorAll("#upgradescontainer .upgrade");
+	var upgArr = [].slice.call(upg).sort(function (a, b) {
+		return game.upgrades[parseInt(a.id.replace("upg", ""))].cost.gt(game.upgrades[parseInt(b.id.replace("upg", ""))].cost) ? 1 : -1;
+	});
+	upgArr.forEach(function (p) {
+		div.appendChild(p);
+	});
 }
 
 function infCookies() {
-	if (confirm('Do you want 1e1000 cookies?')) {
-		game.cookies = new Decimal('1e1000');
-		window.open('html/cheater.html');
+	if (confirm("Do you want 1e1000 cookies?")) {
+		game.cookies = new Decimal("1e1000");
+		window.open("html/cheater.html");
 	}
 }
 

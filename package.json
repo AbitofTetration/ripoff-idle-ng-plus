@@ -1,0 +1,23 @@
+{
+  "name": "ripoff-idle-ngp",
+  "version": "1.0.0",
+  "description": "An incremental game about ripping off incremental games.",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbitofTetration/ripoff-idle-ng-plus.git"
+  },
+  "author": "Despacit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AbitofTetration/ripoff-idle-ng-plus/issues"
+  },
+  "homepage": "https://github.com/AbitofTetration/ripoff-idle-ng-plus#readme",
+  "dependencies": {
+    "eslint": "^7.5.0",
+    "eslint-plugin-vue": "^6.2.2"
+  }
+}
