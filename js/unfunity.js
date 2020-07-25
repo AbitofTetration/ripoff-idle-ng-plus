@@ -1,11 +1,11 @@
 function getAscensionPower() {
   let q = game.ascensions.div(20)
   
-  return q
+  return q*100
 }
 
 function getGalaxyBoost() {
-  let q = game.unfunityGalaxies.add(1)
+  let q = game.unfunityGalaxies
   
   q = q.mul(getPrestigeBoosts(5))
   q = q.mul(Decimal.add(getAscensionPower(),1))
