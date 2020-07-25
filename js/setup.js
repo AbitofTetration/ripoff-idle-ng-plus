@@ -1683,8 +1683,10 @@ class Game {
 				}
 				
 				if (this.vers != "0.2.1") {
-					if (data.achievements[i] == true) {
-						this.achievements[i] == true;
+					for (i in Achievements) {
+						if (data.achievements[i] == true) {
+							this.achievements[i] == true;
+						}
 					}
 				}
 					
