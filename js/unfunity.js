@@ -1,7 +1,7 @@
 function getAscensionPower() {
   let q = game.ascensions.div(20)
   
-  return q*100
+  return q
 }
 
 function getGalaxyBoost() {
@@ -77,5 +77,5 @@ function showunfunity() {
 
   setElem('ascensions', displayNum(game.ascensions))
   setElem('ascensionCost', displayNum(getAscendCost()))
-  setElem('ascensionBoost', displayNum(getAscensionPower()))
+  setElem('ascensionBoost', displayNum(getAscensionPower().mul(100)))
 }
