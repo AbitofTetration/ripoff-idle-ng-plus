@@ -1618,8 +1618,9 @@ class Game {
 			this.upgrades[i] = new Upgrade(this.upgradeData[i].name, this.upgradeData[i].cost, false, this.upgradeData[i].icon, this.upgradeData[i].onBuy, this.upgradeData[i].visReq);
 		}
 		
-		this.achievements = [];
-		this.unlockedAchievements = 0;
+		for (let i = 0; i < Achievements.length; i++) {
+			this.achievements[i] = false
+		}
 		
 		this.buyAmount = new Decimal(1);
 		document.getElementById('bulk').value = this.buyAmount;
