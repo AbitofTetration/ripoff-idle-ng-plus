@@ -1682,7 +1682,7 @@ class Game {
 					this.upgrades[i] = new Upgrade(this.upgradeData[i].name, this.upgradeData[i].cost, data.upgrades[i].bought, this.upgradeData[i].icon, this.upgradeData[i].onBuy, this.upgradeData[i].visReq);
 				}
 				
-				if (vers != "0.2.1") {
+				if (this.vers != "0.2.1") {
 					if (data.achievements[i] == true) {
 						this.achievements[i] == true;
 					}
