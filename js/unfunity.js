@@ -5,7 +5,7 @@ function getAscensionPower() {
 }
 
 function getGalaxyBoost() {
-  let q = game.unfunityGalaxies
+  let q = game.unfunityGalaxies.add(1)
   
   q = q.mul(getPrestigeBoosts(5))
   q = q.pow(Decimal.add(getAscensionPower(),1))
