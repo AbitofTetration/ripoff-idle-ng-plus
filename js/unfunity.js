@@ -9,7 +9,7 @@ function getGalaxyBoost() {
   
   q = q.mul(getPrestigeBoosts(5))
   q = q.pow(Decimal.add(getAscensionPower(),1))
-  q = q.pow(0.59).max(1)
+  q = q.pow(0.85).max(1)
   
   return q
 }
