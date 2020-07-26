@@ -355,6 +355,7 @@ sup {
 			#411f5d 62.5%,
 			#411f5d 100%
 		) !important;
+	color: white;
 }
 
 .ach {
@@ -376,6 +377,51 @@ sup {
 	display: inline-block;
 	width: 120px;
 	height: 120px;
+	background: radial-gradient(
+			ellipse farthest-corner at right bottom,
+			#fedb37 0%,
+			#fdb931 8%,
+			#9f7928 30%,
+			#8a6e2f 40%,
+			transparent 80%
+		),
+		radial-gradient(
+			ellipse farthest-corner at left top,
+			#ffffff 0%,
+			#ffffac 8%,
+			#d1b464 25%,
+			#5d4a1f 62.5%,
+			#5d4a1f 100%
+		) !important;
+	float: left;
+	border-color: gold;
+}
+.ascend {
+	display: inline-block;
+	width: 175px;
+	height: 175px;
+	background: radial-gradient(
+			ellipse farthest-corner at right bottom,
+			#d437fe 0%,
+			#ae3acd 8%,
+			#953aad 30%,
+			#733185 40%,
+			transparent 80%
+		),
+		radial-gradient(
+			ellipse farthest-corner at left top,
+			#ffffff 0%,
+			#edacff 8%,
+			#9964D1 25%,
+			#411f5d 62.5%,
+			#411f5d 100%
+		) !important;
+	float: left;
+	color: white;
+}
+
+.prestnorm {
+	display: inline-block;
 	background: radial-gradient(
 			ellipse farthest-corner at right bottom,
 			#fedb37 0%,

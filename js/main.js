@@ -1,6 +1,6 @@
 /*
 	Welcome to the main JS file!
-	
+
 	Regardless of if your here to
 	find out how to cheat or something,
 	I'm going to (hopefully) comment
@@ -8,21 +8,21 @@
 
 	If I forgot to, good luck reading
 	my spaghetti code ;)
-	
-	  _____    _                    __    __     _____       _   _        
-	 |  __ \  (_)                  / _|  / _|   |_   _|     | | | |       
-	 | |__) |  _   _ __     ___   | |_  | |_      | |     __| | | |   ___ 
+
+	  _____    _                    __    __     _____       _   _
+	 |  __ \  (_)                  / _|  / _|   |_   _|     | | | |
+	 | |__) |  _   _ __     ___   | |_  | |_      | |     __| | | |   ___
 	 |  _  /  | | |  _ \   / _ \  |  _| |  _|     | |    / _  | | |  / _ \
 	 | | \ \  | | | |_) | | (_) | | |   | |      _| |_  | (_| | | | |  __/
 	 |_|  \_\ |_| |  __/   \___/  |_|   |_|     |_____|  \__ _| |_|  \___|
-				  | |                                                     
-				  |_|    
+				  | |
+				  |_|
 	thanks to https://www.messletters.com/en/big-text/ for the ASCII letters
 */
 
 // Chuck your data into the depths of the localStorage variable...
 function save() {
-	localStorage.setItem('ri-save', JSON.stringify(game));
+	localStorage.setItem("ri-save", JSON.stringify(game));
 	var x = document.getElementById("autosave");
 	x.className = "show";
 	setTimeout(function () {
@@ -35,8 +35,8 @@ function save() {
 
 // Clear the save file
 function wipe() {
-	if (confirm('Do you want to delete ALL of your progress?!?')) {
-		delete localStorage['ri-save'];
+	if (confirm("Do you want to delete ALL of your progress?!?")) {
+		delete localStorage["ri-save"];
 		setup();
 		save();
 	}
@@ -44,8 +44,8 @@ function wipe() {
 
 // Retrieve your data from the depths of the localStorage variable...
 function load() {
-	if (localStorage.getItem('ri-save') != undefined && localStorage.getItem('ri-save') != 'undefined' && localStorage.getItem('ri-save') != null) {
-		game = new Game(JSON.parse(localStorage.getItem('ri-save')));
+	if (localStorage.getItem("ri-save") != undefined && localStorage.getItem("ri-save") != "undefined" && localStorage.getItem("ri-save") != null) {
+		game = new Game(JSON.parse(localStorage.getItem("ri-save")));
 		return true;
 	} else {
 		return false;
@@ -53,8 +53,8 @@ function load() {
 }
 
 function tip() { // Display tips
-  let tip = ['Buying more 8th tier buildings boost UP gain.', 'When in doubt, grind unfunity points.'][Math.floor(Math.random()*2)]
-  new TipPopup(tip).popup();
+	let tip = ["Buying more 8th tier buildings boost UP gain.", "When in doubt, grind unfunity points."][Math.floor(Math.random()*2)];
+	new TipPopup(tip).popup();
 }
 
 function init() {
@@ -67,7 +67,7 @@ function init() {
 		i.testBought();
 	}
 	let loop = setInterval(gameLoop, 50);
-  setInterval(tip(), 5000);
+	setInterval(tip(), 5000);
 }
 
 function gameLoop() {
@@ -75,20 +75,15 @@ function gameLoop() {
 	showElems();
 	updGens();
 	doCps();
-  showunfunity();
-  showprestige();
-	for (let i of game.achievements) {
-		i.updUnlock();
+	showunfunity();
+	showprestige();
+	if(game.prestigeUpgrades[5].gt(0)) {
+		for (let i of game.upgrades) i.buy();
 	}
-  if(game.prestigeUpgrades[5].gt(0)) {
-    for (let i of game.upgrades) {
-      i.buy()
-    }
-  }
-  if(game.prestigeUpgrades[7].gt(0)) {
-    cookieClick()
-  }
-	game.autosaveintv = new Decimal(document.getElementById('asintv').value);
-	game.buyAmount = new Decimal(document.getElementById('bulk').value);
-	hide('loading');
+	if(game.prestigeUpgrades[7].gt(0)) {
+		cookieClick();
+	}
+	game.autosaveintv = new Decimal(document.getElementById("asintv").value);
+	game.buyAmount = new Decimal(document.getElementById("bulk").value);
+	hide("loading");
 }
