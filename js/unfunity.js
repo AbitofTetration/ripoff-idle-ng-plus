@@ -15,7 +15,7 @@ function getGalaxyBoost() {
 }
 
 function updateUnfunity(time) {
-	let q = game.cookies.log(10).div(250).pow(0.5).mul(getUnfunityMult());
+	let q = game.cookies.log(10).div(1250).pow(0.5).mul(getUnfunityMult());
 	if(game.cookies.gt(1e150)) {
 		game.unfunityPoints = game.unfunityPoints.add(q);
 	}
