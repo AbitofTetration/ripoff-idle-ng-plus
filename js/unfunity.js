@@ -9,13 +9,13 @@ function getGalaxyBoost() {
   
 	q = q.mul(getPrestigeBoosts(5));
 	q = q.pow(Decimal.add(getAscensionPower(),1));
-	q = q.pow(0.85).max(1);
+	q = q.pow(0.35).max(1);
   
 	return q;
 }
 
 function updateUnfunity(time) {
-	let q = game.cookies.log(10).div(15).pow(0.5).div(3600).mul(getUnfunityMult());
+	let q = game.cookies.log(10).div(15).pow(0.5).mul(getUnfunityMult());
 	if(game.cookies.gt(1e150)) {
 		game.unfunityPoints = game.unfunityPoints.add(q);
 	}
