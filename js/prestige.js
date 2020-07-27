@@ -68,7 +68,12 @@ function getPrestigeBoosts(number) {
 	// you don't need to break if you return a value in a switch case
 	switch(number) {
 		case 1:
-			return Decimal.pow(25, game.prestigeUpgrades[0]);
+			let q = Decimal.pow(25, game.prestigeUpgrades[0]);
+			
+			if (q > 5000) {
+			    q = q.mul(10).pow(0.5).max(5000)
+			}
+			return q
 		case 2:
 			return Decimal.pow(1.5, game.prestigeUpgrades[1]);
 		case 3:
