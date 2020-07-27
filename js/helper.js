@@ -62,33 +62,33 @@ function setElem(id, content) {
 function displayNum(decimal, floor, accuracy) {
 	if (decimal instanceof Decimal){
 		if (floor == true) {
-			if (decimal.lt(1)) {
+			if (decimal.lt(10)) {
 				return decimal.floor().toPrecision(1);
-			} else if (decimal.lt(10)) {
-				return decimal.floor().toPrecision(1).toString().replace("+", "");
 			} else if (decimal.lt(100)) {
+				return decimal.floor().toPrecision(1).toString().replace("+", "");
+			} else if (decimal.lt(1000)) {
 				return decimal.floor().toPrecision(2).toString().replace("+", "");
 			} else {
 				return decimal.floor().toPrecision(3).toString().replace("+", "");
 			}
 
 		} else if (accuracy > 1) {
-			if (decimal.lt(1)) {
+			if (decimal.lt(10)) {
 				return decimal.toPrecision(accuracy);
-			} else if (decimal.lt(10)) {
-				return decimal.toPrecision(accuracy).toString().replace("+", "");
 			} else if (decimal.lt(100)) {
+				return decimal.toPrecision(accuracy).toString().replace("+", "");
+			} else if (decimal.lt(1000)) {
 				return decimal.toPrecision(accuracy+1).toString().replace("+", "");
 			} else {
 				return decimal.toPrecision(accuracy+2).toString().replace("+", "");
 			}
 
 		} else {
-			if (decimal.lt(1)) {
+			if (decimal.lt(10)) {
 				return decimal.toPrecision(1);
-			} else if (decimal.lt(10)) {
-				return decimal.toPrecision(2).toString().replace("+", "");
 			} else if (decimal.lt(100)) {
+				return decimal.toPrecision(2).toString().replace("+", "");
+			} else if (decimal.lt(1000)) {
 				return decimal.toPrecision(3).toString().replace("+", "");
 			} else {
 				return decimal.toPrecision(3).toString().replace("+", "");
