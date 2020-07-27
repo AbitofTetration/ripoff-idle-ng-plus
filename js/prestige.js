@@ -108,6 +108,11 @@ function showprestige() {
 
 	setElem("prestigeUpgrade1Boost", displayNum(getPrestigeBoosts(1)));
 	setElem("prestigeUpgrade1Cost", displayNum(getPrestigeCost(1)));
+	if(getPrestigeBoosts(1).gt(5000)) {
+		show("softcappedPrestUpgrade1");
+	} else {
+		hide("softcappedPrestUpgrade1");
+	}
 
 	setElem("prestigeUpgrade2Boost", displayNum(getPrestigeBoosts(2)));
 	setElem("prestigeUpgrade2Cost", displayNum(getPrestigeCost(2)));
