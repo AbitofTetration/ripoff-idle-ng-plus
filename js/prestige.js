@@ -82,7 +82,7 @@ function getPrestigeBoosts(number) {
 			return Decimal.pow(2, game.prestigeUpgrades[3]);
 		case 5:
 			let q = new Decimal(1)
-			q = q.mul(game.prestigeUpgrades[4].div(100))
+			q = q.mul(game.prestigeUpgrades[4].div(20))
 			return q;
 		case 7:
 			return Decimal.pow(game.unfunityPoints.pow(0.05), game.prestigeUpgrades[7]);
@@ -125,7 +125,7 @@ function showprestige() {
 	setElem("prestigeUpgrade4Boost", displayNum(getPrestigeBoosts(4)));
 	setElem("prestigeUpgrade4Cost", displayNum(getPrestigeCost(4)));
 
-	setElem("prestigeUpgrade5Boost", displayNum(getPrestigeBoosts(5)));
+	setElem("prestigeUpgrade5Boost", displayNum(getPrestigeBoosts(5), true, 2));
 	setElem("prestigeUpgrade5Cost", displayNum(getPrestigeCost(5)));
 
 	setElem("prestigeUpgrade7Boost", displayNum(getPrestigeBoosts(7)));
