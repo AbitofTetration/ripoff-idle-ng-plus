@@ -1,5 +1,6 @@
 function getAscensionPower() {
 	let q = game.ascensions.div(20);
+	q = q.mul(getPrestigeBoosts(5));
   
 	return q;
 }
@@ -7,7 +8,6 @@ function getAscensionPower() {
 function getGalaxyBoost() {
 	let q = game.unfunityGalaxies.add(1);
   
-	q = q.mul(getPrestigeBoosts(5));
 	q = q.pow(Decimal.add(getAscensionPower(),1));
 	q = q.pow(0.35).max(1);
   
