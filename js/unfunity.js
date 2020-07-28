@@ -54,7 +54,7 @@ function getAscendCost() {
 	let q = game.ascensions.add(1.43);
 	q = q.pow(1.2);
 	if (game.ascensions.gt(5)) {
-		q = q.mul(game.ascensions.sub(5).pow(1.1))
+		q = q.mul(game.ascensions.sub(4).pow(1.1))
 		q = q.pow(0.94)
 	}
 	return q;
