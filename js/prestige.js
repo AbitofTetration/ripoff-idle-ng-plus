@@ -68,7 +68,12 @@ function getPrestigeBoosts(number) {
 	// you don't need to break if you return a value in a switch case
 	switch(number) {
 		case 1:
-			return Decimal.pow(25, game.prestigeUpgrades[0]);
+			let q = Decimal.pow(25, game.prestigeUpgrades[0]);
+			
+			if (q > 5000) {
+			    q = q.mul(10).pow(0.5).max(5000)
+			}
+			return q
 		case 2:
 			return Decimal.pow(1.5, game.prestigeUpgrades[1]);
 		case 3:
@@ -103,6 +108,11 @@ function showprestige() {
 
 	setElem("prestigeUpgrade1Boost", displayNum(getPrestigeBoosts(1)));
 	setElem("prestigeUpgrade1Cost", displayNum(getPrestigeCost(1)));
+	if(getPrestigeBoosts(1).gt(5000)) {
+		show("softcappedPrestUpgrade1");
+	} else {
+		hide("softcappedPrestUpgrade1");
+	}
 
 	setElem("prestigeUpgrade2Boost", displayNum(getPrestigeBoosts(2)));
 	setElem("prestigeUpgrade2Cost", displayNum(getPrestigeCost(2)));
