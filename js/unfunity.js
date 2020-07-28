@@ -57,7 +57,7 @@ function getAscendCost() {
 }
 
 function ascend() {
-	if (game.unfunityGalaxies.lt(getAscendCost())) return;
+	if (game.unfunityGalaxies.lt(getAscendCost())) return end;
 	game.ascensions = game.ascensions.add(1);
 	game.unfunityPoints = new Decimal(0);
 }
