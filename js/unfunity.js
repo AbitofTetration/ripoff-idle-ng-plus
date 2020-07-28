@@ -28,6 +28,9 @@ function getUnfunityBoost() {
 	let q = game.unfunityPoints.add(1);
   
 	q = q.max(1).pow(getGalaxyBoost());
+	if (q.gte(1e10)) {
+	q = q.log(1.5).div(10).pow(5).max(1e10)
+	}
   
 	return q;
 }
@@ -65,6 +68,11 @@ function showunfunity() {
 		show("unfun");
 	} else {
 		hide("unfun");
+	}
+	if(getUnfunityBoost().gt(1e10)) {
+		show("unfunMultSoftcap");
+	} else {
+		hide("unfunMultSoftcap");
 	}
 	setElem("unfunity", displayNum(game.unfunityPoints));
 	setElem("unfunityBoost", displayNum(getUnfunityBoost()));
