@@ -81,7 +81,9 @@ function getPrestigeBoosts(number) {
 		case 4:
 			return Decimal.pow(2, game.prestigeUpgrades[3]);
 		case 5:
-			return Decimal.pow(game.prestiges.pow(0.02), game.prestigeUpgrades[4]).max(1);
+			let q = new Decimal(1)
+			q = q.mul(game.prestigeUpgrades[4].div(100))
+			return q;
 		case 7:
 			return Decimal.pow(game.unfunityPoints.pow(0.05), game.prestigeUpgrades[7]);
 	}
