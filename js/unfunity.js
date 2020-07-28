@@ -19,7 +19,7 @@ function updateUnfunity(time) {
 	if(game.cookies.gt(1e150)) {
 		game.unfunityPoints = game.unfunityPoints.add(q);
 	}
-	game.unfunityGalaxies = Decimal.affordGeometricSeries(game.unfunityPoints, new Decimal(10), new Decimal(8), new Decimal(1)).floor();
+	game.unfunityGalaxies = Decimal.affordGeometricSeries(game.unfunityPoints, new Decimal(10), new Decimal(8), new Decimal(0)).floor();
 	if(game.cookies.gt(1e150)) return q.mul(20).pow(getPrestigePointPower());
 	return 0;
 }
