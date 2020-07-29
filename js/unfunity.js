@@ -29,7 +29,7 @@ function getUnfunityBoost() {
   
 	q = q.max(1).pow(getGalaxyBoost());
 	if (q.gte(1e10)) {
-	q = q.log(1.5).div(10).pow(5).max(1e10)
+	q = q.pow(4).log(1.5).mul(game.unfunityPoints.log(2)).pow(5).max(1e10)
 	}
   
 	return q;
