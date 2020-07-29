@@ -24,12 +24,12 @@ function updateUnfunity(time) {
 	return 0;
 }
 
-function getUnfunityBoost() {
+function getUnfunityBoost() 
 	let q = game.unfunityPoints.add(1);
   
 	q = q.max(1).pow(getGalaxyBoost());
 	if (q.gte(1e10)) {
-	q = q.pow(4).log(1.5).mul(game.unfunityPoints.log(2)).pow(5).max(1e10)
+	q = q.pow(4).log(1.5).mul(game.unfunityPoints.log(2)).pow(2).max(1e10)
 	}
   
 	return q;
