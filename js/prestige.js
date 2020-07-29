@@ -71,7 +71,7 @@ function getPrestigeBoosts(number) {
 			let q = Decimal.pow(25, game.prestigeUpgrades[0]);
 			
 			if (q > 5000) {
-			    q = q.mul(10).pow(0.5).max(5000)
+			    q = Decimal.pow(25, game.prestigeUpgrades[0].pow(0.95));
 			}
 			return q
 		case 2:
