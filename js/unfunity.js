@@ -24,7 +24,7 @@ function updateUnfunity(time) {
 	return 0;
 }
 
-function getUnfunityBoost() 
+function getUnfunityBoost() {
 	let q = game.unfunityPoints.add(1);
   
 	q = q.max(1).pow(getGalaxyBoost());
