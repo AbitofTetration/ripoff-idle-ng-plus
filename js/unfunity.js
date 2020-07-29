@@ -29,7 +29,7 @@ function getUnfunityBoost() {
   
 	q = q.max(1).pow(getGalaxyBoost());
 	if (q.gte(1e10)) {
-	q = q.pow(4).log(1.5).mul(game.unfunityPoints.log(2)).pow(2).max(1e10)
+	q = q.pow(4).log(1.5).mul(game.unfunityPoints.log(2)).pow(3).max(1e10)
 	}
   
 	return q;
@@ -54,7 +54,7 @@ function getAscendCost() {
 	let q = game.ascensions.add(1.43);
 	q = q.pow(1.2);
 	if (game.ascensions.gt(5)) {
-		q = q.mul(game.ascensions.sub(4).log(1.1))
+		q = q.add(game.ascensions.sub(4).log(1.1))
 	}
 	return q;
 }
