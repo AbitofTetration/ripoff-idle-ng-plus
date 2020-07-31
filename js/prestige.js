@@ -136,4 +136,8 @@ function showprestige() {
 	setElem("prestigeUpgrade6Cost", (game.prestigeUpgrades[5].gt(0) ? "Bought" : "Cost: " + displayNum(getPrestigeCost(6)) + " PP"));
   
 	setElem("prestigeUpgrade8Cost", (game.prestigeUpgrades[7].gt(0) ? "Bought" : "Cost: " + displayNum(getPrestigeCost(8)) + " PP"));
+  
+	setElem("prestigeUpgrade9Cost", (game.prestigeUpgrades[8].gt(0) ? "Bought" : "Cost: " + displayNum(getPrestigeCost(9)) + " PP"));
+  
+	setElem("prestigeUpgrade10Cost", (game.prestigeUpgrades[9].gt(0) ? "Bought" : "Cost: " + displayNum(getPrestigeCost(10)) + " PP"));
 }
