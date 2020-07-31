@@ -31,16 +31,18 @@ function prestige() {
 	game.generators = [];
 	game.unlockedGens = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
 		
-	for (let i = 0; i < 16; i++) {
-		game.generators[i] = [];
-		for (let j = 0; j < 8; j++) {
-			game.generators[i][j] = new Generator(i, j);
+	if (game.prestigeUpgrades[9]) {
+		for (let i = 0; i < 16; i++) {
+			game.generators[i] = [];
+			for (let j = 0; j < 8; j++) {
+				game.generators[i][j] = new Generator(i, j);
+			}
 		}
 	}
     
-	game.unfunityPoints = new Decimal(0);
-	game.unfunityPointsMult = new Decimal(1);
-	game.unfunityGalaxies = new Decimal(0);
+	if(game.prestigeUpgrades[8] < 1) game.unfunityPoints = new Decimal(0);
+	if(game.prestigeUpgrades[8] < 1) game.unfunityPointsMult = new Decimal(1);
+	if(game.prestigeUpgrades[8] < 1) game.unfunityGalaxies = new Decimal(0);
 	game.upgrades.forEach((x)=>{x.bought=false;});
 }
 
@@ -53,7 +55,7 @@ function getPrestigePointPower() {
 }
 
 function getPrestigeCost(number) {
-	let q = new Decimal([1,2,3,1,3,5,5,15][number-1]).mul(Decimal.pow([3,4,4,5,6,Infinity,7,Infinity][number-1], game.prestigeUpgrades[number-1]));
+	let q = new Decimal([1,2,3,1,3,5,5,15,50,250][number-1]).mul(Decimal.pow([3,4,4,5,6,Infinity,7,Infinity,Infinity,Infinity][number-1], game.prestigeUpgrades[number-1]));
   
 	return q;
 }
@@ -85,7 +87,7 @@ function getPrestigeBoosts(number) {
 			m = m.add(game.prestigeUpgrades[4].div(20))
 			return m;
 		case 7:
-			return Decimal.pow(game.unfunityPoints.pow(0.05), game.prestigeUpgrades[7]);
+			return Decimal.pow(game.unfunityPoints.pow(0.05), game.prestigeUpgrades[6]);
 	}
 }
 
