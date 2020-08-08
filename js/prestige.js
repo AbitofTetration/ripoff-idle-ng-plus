@@ -89,7 +89,7 @@ function getPrestigeBoosts(number) {
 		case 7:
 			return Decimal.pow(game.unfunityPoints.pow(0.05), game.prestigeUpgrades[6]);
 		case 11:
-			return Decimal.pow(game.prestigeUpgrades[6], game.prestigePoints);
+			return Decimal.pow(4, game.prestigeUpgrades[10].pow(1.2));
 	}
 }
 
@@ -134,6 +134,9 @@ function showprestige() {
 
 	setElem("prestigeUpgrade7Boost", displayNum(getPrestigeBoosts(7)));
 	setElem("prestigeUpgrade7Cost", displayNum(getPrestigeCost(7)));
+
+	setElem("prestigeUpgrade11Boost", displayNum(getPrestigeBoosts(11)));
+	setElem("prestigeUpgrade11Cost", displayNum(getPrestigeCost(11)));
   
 	setElem("prestigeUpgrade6Cost", (game.prestigeUpgrades[5].gt(0) ? "Bought" : "Cost: " + displayNum(getPrestigeCost(6)) + " PP"));
   
