@@ -1,5 +1,6 @@
 function getAscensionPower() {
 	let q = game.ascensions.div(20);
+	q = q.mul(getPrestigeBoosts(5));
   
 	return q;
 }
@@ -7,7 +8,6 @@ function getAscensionPower() {
 function getGalaxyBoost() {
 	let q = game.unfunityGalaxies.add(1);
   
-	q = q.mul(getPrestigeBoosts(5));
 	q = q.pow(Decimal.add(getAscensionPower(),1));
 	q = q.pow(0.35).max(1);
   
@@ -19,7 +19,7 @@ function updateUnfunity(time) {
 	if(game.cookies.gt(1e150)) {
 		game.unfunityPoints = game.unfunityPoints.add(q);
 	}
-	game.unfunityGalaxies = Decimal.affordGeometricSeries(game.unfunityPoints, new Decimal(10), new Decimal(8), new Decimal(1)).floor();
+	game.unfunityGalaxies = Decimal.affordGeometricSeries(game.unfunityPoints, new Decimal(10), new Decimal(4), new Decimal(0)).floor();
 	if(game.cookies.gt(1e150)) return q.mul(20).pow(getPrestigePointPower());
 	return 0;
 }
@@ -28,6 +28,9 @@ function getUnfunityBoost() {
 	let q = game.unfunityPoints.add(1);
   
 	q = q.max(1).pow(getGalaxyBoost());
+	if (q.gte(1e10)) {
+	q = q.pow(4).log(1.5).mul(game.unfunityPoints.log(2)).pow(3).max(1e10)
+	}
   
 	return q;
 }
@@ -50,11 +53,14 @@ function getUnfunityMult() {
 function getAscendCost() {
 	let q = game.ascensions.add(1.43);
 	q = q.pow(1.2);
+	if (game.ascensions.gt(5)) {
+		q = q.add(game.ascensions.sub(4).log(1.1))
+	}
 	return q;
 }
 
 function ascend() {
-	if (game.unfunityGalaxies.lt(getAscendCost())) return;
+	if (!game.unfunityGalaxies.gte(getAscendCost())) return;
 	game.ascensions = game.ascensions.add(1);
 	game.unfunityPoints = new Decimal(0);
 }
@@ -66,13 +72,18 @@ function showunfunity() {
 	} else {
 		hide("unfun");
 	}
+	if(getUnfunityBoost().gt(1e10)) {
+		show("unfunMultSoftcap");
+	} else {
+		hide("unfunMultSoftcap");
+	}
 	setElem("unfunity", displayNum(game.unfunityPoints));
 	setElem("unfunityBoost", displayNum(getUnfunityBoost()));
 	setElem("unfunity/sec", displayNum(updateUnfunity(33)));
 
 	setElem("unfunGalaxies", displayNum(game.unfunityGalaxies));
 	setElem("unfunGalaxyBoost", displayNum(getGalaxyBoost()));
-	setElem("unfunGalaxyThreshold", displayNum(Decimal.sumGeometricSeries(new Decimal(1), new Decimal(10), new Decimal(8), game.unfunityGalaxies)));
+	setElem("unfunGalaxyThreshold", displayNum(Decimal.sumGeometricSeries(new Decimal(1), new Decimal(10), new Decimal(4), game.unfunityGalaxies)));
 	setElem("unfunityMult", displayNum(getUnfunityMult()));
 
 	setElem("ascensions", displayNum(game.ascensions));

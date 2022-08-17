@@ -420,6 +420,11 @@ sup {
 	color: white;
 }
 
+.softcapped {
+	color: white;
+	font-weight: bold;
+}
+
 .prestnorm {
 	display: inline-block;
 	background: radial-gradient(

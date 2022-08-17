@@ -64,7 +64,8 @@
 						<div id='tabs'>
 							<button onclick='switchTab(0)' class='switch1'>Stats</button>
 							<button onclick='switchTab(1)' class='switch1'>Settings</button>
-							<button onclick='switchTab(2)' class='switch1'>Unfunity</button>
+							<button onclick='switchTab(2) switchSubTab(6)' class='switch1 unfun' id='unfun'>Unfunity</button>
+							<button onclick='switchTab(3) switchSubTab(7)' class='switch1 prestnorm' id='prestige'>Prestige</button>
 						</div>
 						<div id='subtabs'>
 							<div id='tab0'>
@@ -79,8 +80,10 @@
 								<button onclick='switchSubTab(5)' class='switch2'>Info</button>
 							</div>
 							<div id='tab2'>
-								<button onclick='switchSubTab(6)' class='switch2 unfun' id="unfun">Unfunity</button>
-								<button onclick='switchSubTab(7)' class='switch2 prestnorm' id="prestige">Prestige</button>
+
+								<button onclick='switchSubTab(8)' class='switch2'>Replication</button>
+							</div>
+							<div id='tab3'>
 							</div>
 						</div>
 					</div>
@@ -134,7 +137,7 @@
 						<!-- Unfunity -->
 						<div id='subtab6'>
 							<h4>Unfunity</h4>
-							You have <span id='unfunity'></span> unfunity points, boosting production by <span id='unfunityBoost'></span>x.
+							You have <span id='unfunity'></span> unfunity points, boosting production by <span id='unfunityBoost'></span>x<span id="unfunMultSoftcap" class="softcapped"> (SC)</span>.
             <br>You are getting <span id='unfunity/sec'></span> unfunity points per second, multiplied by <span id='unfunityMult'></span>x.
               <br><br>
               You have <span id='unfunGalaxies'></span> unfun galaxies, increasing unfunity point power by <span id='unfunGalaxyBoost'></span>x.
@@ -153,7 +156,7 @@
 							<p>Prestige</p> for <span id='prestigePointGain'></span> prestige points.
 						</button><br><br><br><br><br><br><br><br>
 						<button class='prest' id='prestigeUpgrade1' onclick='buyPrestigeUpgrade(1)'>
-							Multiply all production by 25x<br>Currently: <span id='prestigeUpgrade1Boost'></span>x<br>Cost: <span id='prestigeUpgrade1Cost'></span> PP
+							Multiply all production by 25x<br>Currently: <span id='prestigeUpgrade1Boost'></span>x <span id="softcappedPrestUpgrade1" class="softcapped">(SC)</span><br>Cost: <span id='prestigeUpgrade1Cost'></span> PP
 						</button>
 						<button class='prest' id='prestigeUpgrade2' onclick='buyPrestigeUpgrade(2)'>
 							Multiply unfunity production by 1.5x<br>Currently: <span id='prestigeUpgrade2Boost'></span>x<br>Cost: <span id='prestigeUpgrade2Cost'></span> PP
@@ -165,10 +168,13 @@
 							Multiply prestige point gain by 2<br>Currently: <span id='prestigeUpgrade4Boost'></span>x<br>Cost: <span id='prestigeUpgrade4Cost'></span> PP
 						</button>
 						<button class='prest' id='prestigeUpgrade5' onclick='buyPrestigeUpgrade(5)'>
-							Improve unfun galaxies based on prestiges<br>Currently: <span id='prestigeUpgrade5Boost'></span>x<br>Cost: <span id='prestigeUpgrade5Cost'></span> PP
+							Boost the power of ascensions<br>Currently: <span id='prestigeUpgrade5Boost'></span>x<br>Cost: <span id='prestigeUpgrade5Cost'></span> PP
 						</button>
 						<button class='prest' id='prestigeUpgrade7' onclick='buyPrestigeUpgrade(7)'>
 							Multiply prestige point gain based on UP<br>Currently: <span id='prestigeUpgrade7Boost'></span>x<br>Cost: <span id='prestigeUpgrade7Cost'></span> PP
+						</button>
+						<button class='prest' id='prestigeUpgrade11' onclick='buyPrestigeUpgrade(11)'>
+							Make ascensions cheaper<br>Currently: <span id='prestigeUpgrade11Boost'></span>x<br>Cost: <span id='prestigeUpgrade11Cost'></span> PP
 						</button>
               
               
@@ -179,7 +185,18 @@
 						<button class='prest' id='prestigeUpgrade8' onclick='buyPrestigeUpgrade(8)'>
 							Unlock clicking automation<br><span id='prestigeUpgrade8Cost'></span>
 						</button>
+						<button class='prest' id='prestigeUpgrade9' onclick='buyPrestigeUpgrade(9)'>
+							Keep unfunity on prestige<br><span id='prestigeUpgrade9Cost'></span>
+						</button>
+						<button class='prest' id='prestigeUpgrade10' onclick='buyPrestigeUpgrade(10)'>
+							Keep buildings on prestige<br><span id='prestigeUpgrade10Cost'></span>
+						</button>
             </div>
+
+						<!-- Unfunity -->
+						<div id='subtab8'>
+							<h4>Replication</h4>
+						</div>
 				</div>
 				
 				<div id='mid2'>
